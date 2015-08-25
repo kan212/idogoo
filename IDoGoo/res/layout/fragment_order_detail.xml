@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.idogoo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.cardview.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        app:contentPadding="6dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tv_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_app"
+                android:padding="4dp"
+                android:text="订单信息"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <com.idogoo.widget.CircleImageView
+                android:id="@+id/iv_expert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tv_order"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/image_description"
+                android:maxHeight="80dp"
+                android:maxWidth="80dp"
+                android:src="@drawable/ic_launcher"
+                app:drawBorder="false" />
+
+            <TextView
+                android:id="@+id/tv_expert_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_order"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/iv_expert"
+                android:padding="4dp"
+                android:text="订单信息"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_expert_intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_expert_name"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/iv_expert"
+                android:padding="4dp"
+                android:text="订单信息"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_expert_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_expert_intro"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/iv_expert"
+                android:padding="4dp"
+                android:text="订单信息"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </com.cardview.CardView>
+    
+    <com.cardview.CardView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        app:contentPadding="6dp" >
+        
+        
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_app"
+                android:padding="4dp"
+                android:text="见面时间"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            
+             <TextView
+                android:id="@+id/tv_time_zone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:padding="4dp"
+                android:text="订单信息"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            
+             
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_app"
+                android:padding="4dp"
+                android:text="见面地点"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            
+             <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:padding="4dp"
+                android:text="订单信息"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            
+            
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_app"
+                android:padding="4dp"
+                android:text="评价详情"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            
+             <RatingBar 
+                 android:id="@+id/ratbar_order"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:numStars="5"
+                 android:rating="4"/>
+             
+        </LinearLayout>
+        
+    </com.cardview.CardView>
+
+</LinearLayout>
