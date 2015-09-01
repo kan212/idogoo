@@ -92,7 +92,6 @@ public class AppointFragment extends Fragment implements OnClickListener{
 			tv_expert_intro.setText(parser.getTitle());
 			mTopicParser = parser;
 		}
-		
 	}
 
 	@Override
