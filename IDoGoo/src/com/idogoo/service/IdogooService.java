@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.idogoo.app.MainActivity;
 import com.idogoo.utils.IDoGooUtils;
 import com.umeng.message.UTrack;
 import com.umeng.message.UmengBaseIntentService;
@@ -29,7 +30,7 @@ public class IdogooService extends UmengBaseIntentService {
 			String message = intent.getStringExtra(BaseConstants.MESSAGE_BODY);
 			UMessage msg = new UMessage(new JSONObject(message));
 			IDoGooUtils.showNotification(context,
-					Integer.parseInt(msg.message_id), msg.title, msg.ticker,
+					1, msg.title, msg.ticker,
 					getIntent(context, msg));
 		} catch (Exception e) {
 			Log.e(TAG, e.getMessage());
@@ -38,6 +39,7 @@ public class IdogooService extends UmengBaseIntentService {
 
 	private Intent getIntent(Context context, UMessage msg) {
 		Intent intent = new Intent();
+		intent.setClass(context, MainActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		return intent;
 	}

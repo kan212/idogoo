@@ -10,7 +10,9 @@ import android.widget.LinearLayout;
 import com.idogoo.R;
 import com.idogoo.fragment.SpeListFragment;
 import com.idogoo.service.IdogooService;
+import com.idogoo.utils.Config;
 import com.umeng.message.PushAgent;
+import com.umeng.message.UmengRegistrar;
 
 public class MainActivity extends FragmentActivity {
 
@@ -28,6 +30,8 @@ public class MainActivity extends FragmentActivity {
 		mPushAgent.onAppStart();
 		mPushAgent.enable();
 		mPushAgent.setPushIntentServiceClass(IdogooService.class);
+		String device_token = UmengRegistrar.getRegistrationId(this);
+		Config.e("device_token == "+device_token);
 	}
 
 	@Override

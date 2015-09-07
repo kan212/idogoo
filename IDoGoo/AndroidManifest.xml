@@ -42,6 +42,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".app.PayActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name=".app.SubActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|navigation"
             android:screenOrientation="portrait" >
@@ -86,11 +90,15 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="" >
+            android:value="551378d9fd98c523f600090c" >
         </meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="" >
+            android:value="4a302fb6bf989e784c4dd1482853e9da" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="idogoo" >
         </meta-data>
     </application>
 
