@@ -24,7 +24,8 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		PushAgent.getInstance(this).onAppStart();
+		mPushAgent = PushAgent.getInstance(this);
+		mPushAgent.onAppStart();
 		mPushAgent.enable();
 		mPushAgent.setPushIntentServiceClass(IdogooService.class);
 	}

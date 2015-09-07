@@ -112,7 +112,7 @@ public class CancelOrderFragment extends Fragment implements OnClickListener {
 			requestData();
 			break;
 		case R.id.tv_1:
-
+			
 			break;
 		case R.id.tv_2:
 

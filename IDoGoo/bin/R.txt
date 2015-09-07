@@ -57,10 +57,13 @@ int drawable bg_oval_n 0x7f020005
 int drawable bg_sms_disable_corners 0x7f020006
 int drawable bg_sms_enable_corners 0x7f020007
 int drawable ic_launcher 0x7f020008
-int drawable shape_comment_bottom 0x7f020009
-int drawable shape_comment_middle 0x7f02000a
-int drawable shape_comment_top 0x7f02000b
-int drawable shape_tips 0x7f02000c
+int drawable msp_demo_title 0x7f020009
+int drawable msp_demo_title_bg 0x7f02000a
+int drawable msp_icon 0x7f02000b
+int drawable shape_comment_bottom 0x7f02000c
+int drawable shape_comment_middle 0x7f02000d
+int drawable shape_comment_top 0x7f02000e
+int drawable shape_tips 0x7f02000f
 int id about_rb_tab 0x7f070015
 int id bottom_line 0x7f070018
 int id btn_camera 0x7f070011
@@ -97,6 +100,7 @@ int id fragment_personcenter 0x7f070008
 int id header_expert 0x7f070001
 int id item_touch_helper_previous_elevation 0x7f070000
 int id iv_expert 0x7f07001d
+int id iv_pay 0x7f070060
 int id iv_title_left 0x7f070004
 int id iv_title_right 0x7f07000f
 int id iv_user 0x7f070009
@@ -186,6 +190,7 @@ int layout item_spelist 0x7f030019
 int layout item_tips 0x7f03001a
 int layout item_topic 0x7f03001b
 int layout load_footer 0x7f03001c
+int layout pay_main 0x7f03001d
 int string action_settings 0x7f090001
 int string app_name 0x7f090000
 int string apponint 0x7f090011

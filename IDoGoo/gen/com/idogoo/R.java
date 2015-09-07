@@ -312,10 +312,13 @@ containing a value of this type.
         public static final int bg_sms_disable_corners=0x7f020006;
         public static final int bg_sms_enable_corners=0x7f020007;
         public static final int ic_launcher=0x7f020008;
-        public static final int shape_comment_bottom=0x7f020009;
-        public static final int shape_comment_middle=0x7f02000a;
-        public static final int shape_comment_top=0x7f02000b;
-        public static final int shape_tips=0x7f02000c;
+        public static final int msp_demo_title=0x7f020009;
+        public static final int msp_demo_title_bg=0x7f02000a;
+        public static final int msp_icon=0x7f02000b;
+        public static final int shape_comment_bottom=0x7f02000c;
+        public static final int shape_comment_middle=0x7f02000d;
+        public static final int shape_comment_top=0x7f02000e;
+        public static final int shape_tips=0x7f02000f;
     }
     public static final class id {
         public static final int about_rb_tab=0x7f070015;
@@ -356,6 +359,7 @@ containing a value of this type.
          */
         public static final int item_touch_helper_previous_elevation=0x7f070000;
         public static final int iv_expert=0x7f07001d;
+        public static final int iv_pay=0x7f070060;
         public static final int iv_title_left=0x7f070004;
         public static final int iv_title_right=0x7f07000f;
         public static final int iv_user=0x7f070009;
@@ -447,6 +451,7 @@ containing a value of this type.
         public static final int item_tips=0x7f03001a;
         public static final int item_topic=0x7f03001b;
         public static final int load_footer=0x7f03001c;
+        public static final int pay_main=0x7f03001d;
     }
     public static final class string {
         public static final int action_settings=0x7f090001;
