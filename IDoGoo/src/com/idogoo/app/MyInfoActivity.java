@@ -33,6 +33,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.UpCompletionHandler;
 import com.qiniu.android.storage.UploadManager;
+import com.umeng.message.PushAgent;
 
 public class MyInfoActivity extends Activity implements OnClickListener {
 
@@ -49,6 +50,7 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_my_info);
 		initView();
 		mUid = getIntent().getStringExtra(Constant.KEY_USER_ID);
+		PushAgent.getInstance(this).onAppStart();
 	}
 
 	private void initView() {

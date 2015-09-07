@@ -16,6 +16,7 @@ import com.idogoo.request.HttpUtil;
 import com.idogoo.request.IDoGooRequest;
 import com.idogoo.request.RequestUrl;
 import com.idogoo.utils.Variable;
+import com.umeng.message.PushAgent;
 
 public class LoadingActivity extends Activity {
 
@@ -26,6 +27,7 @@ public class LoadingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_loading);
+		PushAgent.getInstance(this).onAppStart();
 	}
 
 	@Override

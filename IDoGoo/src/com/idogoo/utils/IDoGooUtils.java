@@ -8,12 +8,17 @@ import java.util.regex.Pattern;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -23,7 +28,10 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.BigTextStyle;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 
 import com.idogoo.R;
 import com.idogoo.app.IDoGooApp;
@@ -205,4 +213,39 @@ public class IDoGooUtils {
 	.showImageOnFail(R.drawable.ic_launcher)
 	.build();
 
+	
+	public static void showNotification(Context context, int id, String title,
+			String tickerText, Intent intent) {
+		if (null == context || TextUtils.isEmpty(tickerText)) {
+			return;
+		}
+		PendingIntent contentIntent = PendingIntent.getActivity(context, id,
+				intent, PendingIntent.FLAG_UPDATE_CURRENT|Notification.FLAG_AUTO_CANCEL);
+		NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+		builder.setContentIntent(contentIntent);
+		// 设置大图
+		builder.setLargeIcon(BitmapFactory.decodeResource(
+				context.getResources(), R.drawable.ic_launcher));
+		// 设置小图
+		builder.setSmallIcon(R.drawable.ic_launcher);
+		// 设置滚动文字
+		builder.setTicker(tickerText);
+		// 设置内容标题
+		builder.setContentTitle(title);
+		// 设置内容
+		builder.setContentText(tickerText);
+		builder.setDefaults(Notification.DEFAULT_ALL);
+		builder.setAutoCancel(true);
+
+		NotificationCompat.BigTextStyle textStyle = new BigTextStyle();
+		textStyle.setBigContentTitle(title);
+		textStyle.bigText(tickerText);
+		builder.setStyle(textStyle);
+		Notification notification = builder.build();
+		NotificationManager manager = (NotificationManager) context
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+		manager.notify(id, notification);
+	}
+
+	
 }

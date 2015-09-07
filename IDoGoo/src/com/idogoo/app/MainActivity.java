@@ -8,9 +8,9 @@ import android.view.Gravity;
 import android.widget.LinearLayout;
 
 import com.idogoo.R;
-import com.idogoo.fragment.RegisterFragment;
 import com.idogoo.fragment.SpeListFragment;
-import com.idogoo.utils.JumpUtils;
+import com.idogoo.service.IdogooService;
+import com.umeng.message.PushAgent;
 
 public class MainActivity extends FragmentActivity {
 
@@ -18,11 +18,15 @@ public class MainActivity extends FragmentActivity {
 	private LinearLayout leftDrawer;
 	private FragmentManager mFragmentManager;
 	private SpeListFragment mSpeListFragment;
+	private PushAgent mPushAgent;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		PushAgent.getInstance(this).onAppStart();
+		mPushAgent.enable();
+		mPushAgent.setPushIntentServiceClass(IdogooService.class);
 	}
 
 	@Override

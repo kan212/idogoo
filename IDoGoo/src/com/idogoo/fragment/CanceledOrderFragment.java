@@ -31,7 +31,6 @@ public class CanceledOrderFragment extends Fragment{
 			Bundle savedInstanceState) {
 		mView  = inflater.inflate(R.layout.fragment_canceled_order, container,false);
 		
-		
 		return mView;
 	}
 

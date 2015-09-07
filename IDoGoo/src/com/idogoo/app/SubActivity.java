@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.idogoo.R;
 import com.idogoo.utils.Constant;
+import com.umeng.message.PushAgent;
 
 public class SubActivity extends FragmentActivity {
 
@@ -30,6 +31,7 @@ public class SubActivity extends FragmentActivity {
 		mTitleView = (TextView) findViewById(R.id.tv_title);
 		mLeftView = (ImageView) findViewById(R.id.iv_title_left);
 		mRightView = (ImageView) findViewById(R.id.iv_title_right);
+		PushAgent.getInstance(this).onAppStart();
 	}
 
 	@Override
