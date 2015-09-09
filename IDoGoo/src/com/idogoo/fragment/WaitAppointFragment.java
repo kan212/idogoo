@@ -17,6 +17,7 @@ public class WaitAppointFragment extends Fragment{
 
 	private View mView;
 	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

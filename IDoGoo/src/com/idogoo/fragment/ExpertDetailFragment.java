@@ -36,7 +36,7 @@ public class ExpertDetailFragment extends Fragment {
 	private String mUid;
 
 	private RoundedImageView iv_user;
-	private TextView tv_name, tv_location, tv_summary;
+	private TextView tv_name, tv_location, tv_summary,tv_meet,tv_opinion;
 	private RecyclerView userTip;
 	private TipsAdapter mTipsAdapter;
 	private LinearLayout topicLayout;
@@ -69,12 +69,14 @@ public class ExpertDetailFragment extends Fragment {
 		tv_location = (TextView) mHeaderView.findViewById(R.id.user_location);
 		tv_name = (TextView) mHeaderView.findViewById(R.id.user_name);
 		tv_summary = (TextView) mHeaderView.findViewById(R.id.user_summary);
+		tv_opinion = (TextView) mHeaderView.findViewById(R.id.tv_opinion);
+		tv_meet = (TextView) mHeaderView.findViewById(R.id.tv_meet);
 		userTip = (RecyclerView) mHeaderView.findViewById(R.id.user_tips);
 		topicLayout = (LinearLayout) mHeaderView
 				.findViewById(R.id.topic_layout);
 		userTip.setHasFixedSize(true);
 		userTip.setLayoutManager(new LinearLayoutManager(getActivity(),
-				LinearLayout.HORIZONTAL, true));
+				LinearLayout.HORIZONTAL, false));
 		return mHeaderView;
 	}
 
@@ -134,6 +136,7 @@ public class ExpertDetailFragment extends Fragment {
 				tv_name.setText(userInfo.getTruename());
 				tv_summary.setText(userInfo.getSummary());
 			}
+			tv_meet.setText("被约见  " + parser.getMeet_num() + "次");
 			mTipsAdapter = new TipsAdapter(getActivity(), parser.getTagList());
 			userTip.setAdapter(mTipsAdapter);
 			addTopicLayout(parser.getTopicList());
@@ -150,7 +153,7 @@ public class ExpertDetailFragment extends Fragment {
 			TextView tv_appoint = (TextView) v.findViewById(R.id.tv_appoint);
 			View divider_view = v.findViewById(R.id.divider_view);
 			final TopicParser item = list.get(i);
-			tv_price.setText(item.getPrice());
+			tv_price.setText(item.getPrice() + "元/小时");
 			tv_topic.setText(item.getTitle());
 			tv_content.setText(item.getSummary());
 			if(i == list.size() - 1) {

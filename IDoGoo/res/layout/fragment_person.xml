@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.idogoo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_app"
-    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res/com.idogoo">
+    android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/layout_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+		android:minHeight="100dp"
+		android:gravity="center_vertical"
         android:layout_gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
@@ -19,17 +22,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/image_description"
-            app:drawBorder="false"
-            android:maxHeight="65dp"
-            android:maxWidth="65dp"
-            android:src="@drawable/ic_launcher" />
+            android:maxHeight="64dp"
+            android:maxWidth="64dp"
+            android:src="@drawable/ic_user_default"
+            app:drawBorder="false" />
 
         <TextView
             android:id="@+id/tv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
             android:text="用户名" >
         </TextView>
     </LinearLayout>
@@ -37,7 +42,7 @@
     <View
         android:id="@+id/divider_view"
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="1dp"
         android:layout_below="@id/layout_user"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="10dp"
@@ -60,12 +65,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:drawableLeft="@drawable/ic_launcher"
+        android:drawableLeft="@drawable/ic_idogoo"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:paddingBottom="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="关于我们" />
+        android:text="关于我们"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
 </RelativeLayout>

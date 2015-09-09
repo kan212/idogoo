@@ -81,25 +81,20 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		setContentView(R.layout.pay_main);
-		iv_pay = (ImageView) findViewById(R.id.iv_pay);
 	}
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-		iv_pay.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.iv_pay:
-			pay();
-			break;
 		}
 	}
 
-	private void pay() {
+	public void pay() {
 		// 订单
 		String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", "0.01");
 
@@ -222,7 +217,6 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 				Locale.getDefault());
 		Date date = new Date();
 		String key = format.format(date);
-
 		Random r = new Random();
 		key = key + r.nextInt();
 		key = key.substring(0, 15);

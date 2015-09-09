@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.PayActivity"
+            android:name="com.alipay.PayActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -90,11 +90,11 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="551378d9fd98c523f600090c" >
+            android:value="55ed96aee0f55a160b0063bd" >
         </meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="4a302fb6bf989e784c4dd1482853e9da" >
+            android:value="256cacc62004ab6a5e7d722899e6e34e" >
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"

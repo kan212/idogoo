@@ -80,7 +80,6 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 					}
 				});
 		HttpUtil.addRequest(request, true);
-
 	}
 
 	protected void initData(MyInfoParser parser) {

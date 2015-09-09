@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.idogoo.R;
@@ -50,16 +51,32 @@ public class PersonAdapter extends BaseAdapter {
 					R.layout.item_person, parent, false);
 			holder = new ViewHolder();
 			holder.tv = (TextView) convertView.findViewById(R.id.tv_content);
+			holder.iv_des = (ImageView) convertView.findViewById(R.id.iv_des);
 			convertView.setTag(holder);
-		}else {
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		holder.tv.setText(getItem(position).getTitle());
+		switch (getItem(position).getType()) {
+		case PersonItem.ABOUT:
+			holder.iv_des.setBackgroundResource(R.drawable.ic_left_2);
+			break;
+		case PersonItem.COVENANT:
+			holder.iv_des.setBackgroundResource(R.drawable.ic_left_1);
+			break;
+		case PersonItem.INFORMATION:
+			holder.iv_des.setBackgroundResource(R.drawable.ic_left_3);
+			break;
+		case PersonItem.MESSAGE:
+			holder.iv_des.setBackgroundResource(R.drawable.ic_left_4);
+			break;
+		}
 		return convertView;
 	}
-	
+
 	public class ViewHolder {
 		private TextView tv;
+		private ImageView iv_des;
 	}
 
 }

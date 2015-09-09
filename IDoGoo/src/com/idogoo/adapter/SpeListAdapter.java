@@ -26,7 +26,7 @@ public class SpeListAdapter extends BaseAdapter {
 
 	private Context mContext;
 	private List<SpeListItem> mList = new ArrayList<SpeListItem>();
-
+	
 	public SpeListAdapter(Context context) {
 		this.mContext = context;
 	}
@@ -123,5 +123,5 @@ public class SpeListAdapter extends BaseAdapter {
 		TextView tips_1, tips_2, tips_3, tv_Name, tv_Location;
 		CardView mCardView;
 	}
-
+	
 }

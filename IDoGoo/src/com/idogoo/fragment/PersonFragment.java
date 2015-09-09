@@ -66,7 +66,6 @@ public class PersonFragment extends Fragment {
 			}
 		}else {
 			userName.setText("");
-			ImageLoader.getInstance().displayImage("", userIcon);
 		}
 	}
 

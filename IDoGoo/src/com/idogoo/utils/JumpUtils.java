@@ -3,16 +3,19 @@ package com.idogoo.utils;
 import android.content.Context;
 import android.content.Intent;
 
+import com.alipay.PayActivity;
 import com.idogoo.app.MyInfoActivity;
 import com.idogoo.app.SubActivity;
 import com.idogoo.fragment.AboutFragment;
 import com.idogoo.fragment.AppointFragment;
+import com.idogoo.fragment.BaseWebFragment;
 import com.idogoo.fragment.CancelOrderFragment;
 import com.idogoo.fragment.ExpertDetailFragment;
 import com.idogoo.fragment.ExpertSetFragment;
 import com.idogoo.fragment.LoginFragment;
 import com.idogoo.fragment.MessageFragment;
 import com.idogoo.fragment.OrderDetailFragment;
+import com.idogoo.fragment.PayFragment;
 import com.idogoo.fragment.RegisterFragment;
 import com.idogoo.fragment.ResetPwdFragment;
 import com.idogoo.fragment.WaitAppointFragment;
@@ -86,8 +89,13 @@ public class JumpUtils {
 		context.startActivity(intent);
 	}
 
+	/**
+	 * 支付页面
+	 * @param context
+	 * @param json
+	 */
 	public static void startPayFragment(Context context, String json) {
-		Intent intent = getIntentSub(context, WaitAppointFragment.class, "支付");
+		Intent intent = new Intent(context, PayActivity.class);
 		intent.putExtra(Constant.EXTRA_JSON, json);
 		context.startActivity(intent);
 	}
@@ -120,6 +128,18 @@ public class JumpUtils {
 		context.startActivity(intent);
 	}
 
+	/**
+	 * 跳转到基本的网页
+	 * @param context
+	 * @param url
+	 * @param title
+	 */
+	public static void startBaseWebFragment(Context context,String url,String title) {
+		Intent intent = getIntentSub(context, BaseWebFragment.class, title);
+		intent.putExtra(Constant.EXTRA_URL, url);
+		context.startActivity(intent);
+	}
+	
 	public static void startUserInfo(Context context, String uid) {
 		Intent intent = new Intent(context, MyInfoActivity.class);
 		intent.putExtra(Constant.KEY_USER_ID, uid);

@@ -193,7 +193,9 @@ public class RequestUrl {
 		pairs.add(new BasicNameValuePair("uid", uid));
 		pairs.add(new BasicNameValuePair("client_ticket", Variable
 				.getInstance().getAccess_key()));
-		return IDoGooUtils.format(UrlExpertDetail, pairs, true);
+		String url = IDoGooUtils.format(UrlExpertDetail, pairs, true);
+		Config.i(url);
+		return url;
 	}
 
 	public static final String urlEvaluateList = "http://www.idogoo.com/profile/cltapi/topicEvaluateList?";

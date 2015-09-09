@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alipay.PayActivity;
 import com.idogoo.R;
 import com.idogoo.paser.TopicParser;
 import com.idogoo.utils.Constant;
@@ -36,7 +37,7 @@ public class PayFragment extends Fragment implements OnClickListener{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Bundle args = getArguments();
+		Bundle args = getActivity().getIntent().getExtras();
 		if (null != args) {
 			String json = args.getString(Constant.EXTRA_JSON);
 			if (!TextUtils.isEmpty(json)) {
@@ -84,7 +85,7 @@ public class PayFragment extends Fragment implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_submit:
-			
+			((PayActivity) getActivity()).pay();
 			break;
 		}
 	}

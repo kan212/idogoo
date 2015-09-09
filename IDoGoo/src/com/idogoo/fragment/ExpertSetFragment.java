@@ -55,9 +55,13 @@ public class ExpertSetFragment extends Fragment implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_submit:
-			
+			requestData();
 			break;
 		}
+	}
+
+	private void requestData() {
+		
 	}
 
 	
