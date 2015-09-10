@@ -74,7 +74,7 @@ public class CancelOrderFragment extends Fragment implements OnClickListener {
 		ImageLoader.getInstance().displayImage(item.getPic(), iv_expert);
 		tv_expert_name.setText(item.getSpecialist_name());
 		tv_expert_intro.setText(item.getTopic_title());
-		tv_expert_price.setText(item.getPrice());
+		tv_expert_price.setText(item.getPrice() + "元/次(1小时左右)");
 	}
 
 	@Override
@@ -112,13 +112,16 @@ public class CancelOrderFragment extends Fragment implements OnClickListener {
 			requestData();
 			break;
 		case R.id.tv_1:
-			
+			tv_1.setBackgroundColor(getResources().getColor(
+					R.color.bg_concel_order_reason));
 			break;
 		case R.id.tv_2:
-
+			tv_2.setBackgroundColor(getResources().getColor(
+					R.color.bg_concel_order_reason));
 			break;
 		case R.id.tv_3:
-
+			tv_3.setBackgroundColor(getResources().getColor(
+					R.color.bg_concel_order_reason));
 			break;
 		}
 	}

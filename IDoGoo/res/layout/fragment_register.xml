@@ -2,17 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_app"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/ic_login_drop" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/title_bar_height" >
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_marginTop="30dp" >
 
         <EditText
             android:id="@+id/register_name_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_bar_height"
-            android:background="@color/white"
+            android:background="@drawable/bg_login"
             android:gravity="center_vertical"
             android:hint="@string/hint_register_name_view"
             android:paddingLeft="50dp"
@@ -30,13 +42,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/title_bar_height" >
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_marginTop="40dp" >
 
         <EditText
             android:id="@+id/register_pwd_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_bar_height"
-            android:background="@color/white"
+            android:background="@drawable/bg_login"
             android:gravity="center_vertical"
             android:hint="@string/hint_register_pwd_view"
             android:paddingLeft="50dp"
@@ -54,13 +67,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/title_bar_height" >
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_marginTop="40dp" >
 
         <EditText
             android:id="@+id/register_tel_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_bar_height"
-            android:background="@color/white"
+            android:background="@drawable/bg_login"
             android:gravity="center_vertical"
             android:hint="@string/hint_register_tel_view"
             android:paddingLeft="50dp"
@@ -78,13 +92,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/title_bar_height" >
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_marginTop="40dp" >
 
         <EditText
             android:id="@+id/register_sms_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_bar_height"
-            android:background="@color/white"
+            android:background="@drawable/bg_login"
             android:gravity="center_vertical"
             android:hint="@string/hint_register_sms_view"
             android:paddingLeft="50dp"
@@ -121,7 +136,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="30dp"
-        android:background="@color/bg_app"
+        android:background="#3fecd9"
         android:text="@string/register"
         android:textColor="@color/white"
         android:textSize="18sp" />

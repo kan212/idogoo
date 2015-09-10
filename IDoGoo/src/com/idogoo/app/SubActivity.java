@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +17,11 @@ import com.idogoo.R;
 import com.idogoo.utils.Constant;
 import com.umeng.message.PushAgent;
 
-public class SubActivity extends FragmentActivity {
+public class SubActivity extends FragmentActivity implements OnClickListener {
 
 	private TextView mTitleView;
 	protected ImageView mLeftView, mRightView;
+	private View mTitle;
 	private Fragment mFragment;
 	private FragmentTransaction mTransaction;
 	private static float SWIPE_MIN_DISTANCE_X;
@@ -31,6 +34,7 @@ public class SubActivity extends FragmentActivity {
 		mTitleView = (TextView) findViewById(R.id.tv_title);
 		mLeftView = (ImageView) findViewById(R.id.iv_title_left);
 		mRightView = (ImageView) findViewById(R.id.iv_title_right);
+		mTitle = findViewById(R.id.layout_title);
 		PushAgent.getInstance(this).onAppStart();
 	}
 
@@ -40,6 +44,9 @@ public class SubActivity extends FragmentActivity {
 		String className = getIntent().getStringExtra(
 				Constant.EXTRA_FRAGMENT_TYPE);
 		String title = getIntent().getStringExtra(Constant.EXTRA_TITLE);
+		boolean isTitleGone = getIntent().getBooleanExtra(
+				Constant.EXTRA_HAS_TITLE, true);
+		mTitle.setVisibility(isTitleGone ? View.VISIBLE : View.GONE);
 		mTitleView.setText(title);
 		SWIPE_MIN_DISTANCE_X = getResources().getDisplayMetrics().density * 100;
 		mFragment = getFragment(className);
@@ -108,10 +115,19 @@ public class SubActivity extends FragmentActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 	}
-	
+
 	@Override
 	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
 		super.onActivityResult(arg0, arg1, arg2);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.iv_title_left:
+			finish();
+			break;
+		}
 	}
 
 }

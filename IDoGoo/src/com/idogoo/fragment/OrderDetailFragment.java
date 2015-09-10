@@ -31,7 +31,7 @@ public class OrderDetailFragment extends Fragment {
 	private String uid;
 	private String order_id;
 	
-	private TextView tv_expert_name, tv_expert_intro, tv_expert_price;
+	private TextView tv_expert_name, tv_expert_intro, tv_expert_price,tv_time_zone,tv_location;
 	private CircleImageView iv_expert;
 
 	@Override
@@ -54,6 +54,8 @@ public class OrderDetailFragment extends Fragment {
 		tv_expert_name = (TextView) mView.findViewById(R.id.tv_expert_name);
 		tv_expert_intro = (TextView) mView.findViewById(R.id.tv_expert_intro);
 		tv_expert_price = (TextView) mView.findViewById(R.id.tv_expert_price);
+		tv_time_zone = (TextView) mView.findViewById(R.id.tv_time_zone);
+		tv_location = (TextView) mView.findViewById(R.id.tv_location);
 		return mView;
 	}
 
@@ -96,6 +98,8 @@ public class OrderDetailFragment extends Fragment {
 			tv_expert_name.setText(parser.getSpecialist_name());
 			tv_expert_intro.setText(parser.getTopic_title());
 			tv_expert_price.setText(parser.getCreateTimestamp());
+			tv_time_zone.setText(parser.getTime_zone());
+			tv_location.setText(parser.getLocation_by_user());
 		}
 	}
 

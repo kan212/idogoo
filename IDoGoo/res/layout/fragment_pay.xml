@@ -9,10 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginLeft="24dp"
         android:gravity="center_vertical"
-        android:text="你正在预约一下话题"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:text="你正在预约以下话题，请支付"
+        android:textColor="#6e6e6e"
+        android:textSize="16sp" />
 
     <com.cardview.CardView
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
         app:cardCornerRadius="10dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false"
-        app:contentPadding="6dp" >
+        app:contentPadding="8dp" >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,10 +45,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/tv_order"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
                 android:contentDescription="@string/image_description"
-                android:maxHeight="80dp"
-                android:maxWidth="80dp"
-                android:src="@drawable/ic_launcher"
+                android:maxHeight="70dp"
+                android:maxWidth="70dp"
+                android:src="@drawable/ic_user_default"
                 app:drawBorder="false" />
 
             <TextView
@@ -56,11 +58,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_order"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/iv_expert"
                 android:padding="4dp"
-                android:text="订单信息"
+                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tv_expert_intro"
@@ -72,7 +75,7 @@
                 android:padding="4dp"
                 android:text="订单信息"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_expert_price"
@@ -84,7 +87,7 @@
                 android:padding="4dp"
                 android:text="订单信息"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
         </RelativeLayout>
     </com.cardview.CardView>
 

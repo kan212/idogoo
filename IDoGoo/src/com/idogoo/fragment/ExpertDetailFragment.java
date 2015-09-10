@@ -144,6 +144,9 @@ public class ExpertDetailFragment extends Fragment {
 	}
 
 	private void addTopicLayout(List<TopicParser> list) {
+		if(null == getActivity()) {
+			return ;
+		}
 		for (int i = 0; i < list.size(); i++) {
 			View v = LayoutInflater.from(getActivity()).inflate(
 					R.layout.item_topic, null, false);

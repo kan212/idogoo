@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
-            android:text="你正在预约一下话题"
-            android:textColor="@color/black"
+            android:text="你正在预约一下话题,请支付"
+            android:textColor="#6e6e6e"
             android:textSize="18sp" />
 
         <com.cardview.CardView
@@ -32,7 +32,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
 
                 <TextView
                     android:id="@+id/tv_order"
@@ -52,9 +53,9 @@
                     android:layout_below="@+id/tv_order"
                     android:layout_centerInParent="true"
                     android:contentDescription="@string/image_description"
-                    android:maxHeight="80dp"
-                    android:maxWidth="80dp"
-                    android:src="@drawable/ic_launcher"
+                    android:maxHeight="74dp"
+                    android:maxWidth="74dp"
+                    android:src="@drawable/ic_user_default"
                     app:drawBorder="false" />
 
                 <TextView
@@ -67,7 +68,8 @@
                     android:padding="4dp"
                     android:text="订单信息"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_expert_intro"
@@ -113,14 +115,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_comment_top"
-                    android:text="请写下你想请教的问题" />
+                    android:paddingLeft="20dp"
+                    android:text="请写下你想请教的问题"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/edit_qustion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="left"
                     android:hint="请写下问题"
-                    android:minHeight="80dp" />
+                    android:minHeight="80dp"
+                    android:textColor="@color/edit_text_color"
+                    android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>
 
@@ -145,16 +153,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_comment_top"
-                    android:text="请写下你想请教的问题" />
+                    android:paddingLeft="20dp"
+                    android:text="请写下你的基本信息"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/edit_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="left"
                     android:hint="请写下问题"
                     android:maxLines="2"
-                    android:scrollbars="vertical"
-                    android:singleLine="false" />
+                    android:minHeight="80dp"
+                    android:textColor="@color/edit_text_color"
+                    android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>
 
@@ -176,14 +189,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_comment_top"
-                    android:text="请写下你想请教的问题" />
+                    android:paddingLeft="20dp"
+                    android:text="请写下你期望的见面地点"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/edit_position"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="left"
                     android:hint="请写下问题"
-                    android:minHeight="80dp" />
+                    android:minHeight="80dp"
+                    android:textColor="@color/edit_text_color"
+                    android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>
 
@@ -205,14 +224,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_comment_top"
-                    android:text="请写下你想请教的问题" />
+                    android:paddingLeft="20dp"
+                    android:text="请写下你期望的见面时间"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
                 <EditText
                     android:id="@+id/edit_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="left"
                     android:hint="请写下问题"
-                    android:minHeight="80dp" />
+                    android:minHeight="80dp"
+                    android:textColor="@color/edit_text_color"
+                    android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>
 

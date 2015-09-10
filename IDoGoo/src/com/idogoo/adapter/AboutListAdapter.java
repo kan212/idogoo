@@ -67,11 +67,11 @@ public class AboutListAdapter extends BaseAdapter {
 			holder.tv_topic = (TextView) convertView
 					.findViewById(R.id.tv_topic);
 			holder.tv_time = (TextView) convertView.findViewById(R.id.tv_time);
-			holder.btn_detail = (Button) convertView
+			holder.btn_detail = (TextView) convertView
 					.findViewById(R.id.btn_detail);
-			holder.btn_cancel_order = (Button) convertView
+			holder.btn_cancel_order = (TextView) convertView
 					.findViewById(R.id.btn_cancel_order);
-			holder.btn_ready_detail = (Button) convertView
+			holder.btn_ready_detail = (TextView) convertView
 					.findViewById(R.id.btn_ready_detail);
 			holder.btn_layout = convertView.findViewById(R.id.btn_layout);
 			convertView.setTag(holder);
@@ -132,7 +132,7 @@ public class AboutListAdapter extends BaseAdapter {
 
 		private CircleImageView iv_user;
 		private TextView tv_user, tv_topic, tv_time;
-		private Button btn_detail, btn_cancel_order, btn_ready_detail;
+		private TextView btn_detail, btn_cancel_order, btn_ready_detail;
 		private View btn_layout;
 
 	}

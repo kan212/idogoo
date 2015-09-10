@@ -40,6 +40,7 @@ public class JumpUtils {
 
 	public static void startLogin(Context context) {
 		Intent intent = getIntentSub(context, LoginFragment.class, "登录");
+		intent.putExtra(Constant.EXTRA_HAS_TITLE, false);
 		context.startActivity(intent);
 	}
 
@@ -97,6 +98,7 @@ public class JumpUtils {
 	public static void startPayFragment(Context context, String json) {
 		Intent intent = new Intent(context, PayActivity.class);
 		intent.putExtra(Constant.EXTRA_JSON, json);
+		intent.putExtra(Constant.EXTRA_TITLE, "支付");
 		context.startActivity(intent);
 	}
 

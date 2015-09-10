@@ -72,6 +72,7 @@ public class CommentListAdapter extends BaseAdapter {
 			holder.tv_name = (TextView) convertView.findViewById(R.id.commnt_tv_name);
 			holder.mRatingBar = (RatingBar) convertView.findViewById(R.id.comment_rating_bar);
 			holder.userIcon = (ImageView) convertView.findViewById(R.id.iv_user);
+			holder.view_divider = convertView.findViewById(R.id.view_divider);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -84,6 +85,13 @@ public class CommentListAdapter extends BaseAdapter {
 		} else {
 			holder.cardView.setEnabledSides(false, true);
 		}
+		
+		if(position < getCount() -1) {
+			holder.view_divider.setVisibility(View.VISIBLE);
+		}else {
+			holder.view_divider.setVisibility(View.GONE);
+		}
+		
 		return convertView;
 	}
 
@@ -145,6 +153,7 @@ public class CommentListAdapter extends BaseAdapter {
 		private RecyclerView tipsView;
 		private ImageView userIcon;
 		private RatingBar mRatingBar;
+		private View view_divider;
 	}
 
 }

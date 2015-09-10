@@ -10,9 +10,10 @@
     <string name="hint_login_name">用户名</string>
     <string name="hint_login_pwd">密码</string>
     <string name="register">注册</string>
+    <string name="retpwd">找回密码</string>
     <string name="reset_pwd">忘记密码</string>
     <string name="submit">提交</string>
-    <string name="pay">支付</string>
+    <string name="pay">支付宝支付</string>
     <string name="logout">退出登录</string>
     <string name="evaluation">评价</string>
     <string name="ready">好了</string>
@@ -21,6 +22,7 @@
     <string name="apponint">预约</string>
     <string name="detail">查看详情</string>
     <string name="cancel_order">取消订单</string>
+    <string name="next_step">下一步</string>
     
     <string name="login_msg1">手机号不能为空</string>
     <string name="login_msg2">无效的手机号</string>

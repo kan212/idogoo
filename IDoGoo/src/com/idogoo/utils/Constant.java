@@ -17,6 +17,8 @@ public class Constant {
 	
 	public static final String EXTRA_URL = "key_extra_url";
 	
+	public static final String EXTRA_HAS_TITLE = "key_extra_no_title";
+	
 	public static final String KEY_VERSION_CODE = "0x000001";//版本号
 	
 	public static final String KEY_USER_ID = "0x000002";

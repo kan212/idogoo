@@ -16,7 +16,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" >
 
             <TextView
                 android:id="@+id/tv_order"
@@ -36,9 +37,9 @@
                 android:layout_below="@+id/tv_order"
                 android:layout_centerInParent="true"
                 android:contentDescription="@string/image_description"
-                android:maxHeight="80dp"
-                android:maxWidth="80dp"
-                android:src="@drawable/ic_launcher"
+                android:maxHeight="74dp"
+                android:maxWidth="74dp"
+                android:src="@drawable/ic_user_default"
                 app:drawBorder="false" />
 
             <TextView
@@ -49,9 +50,9 @@
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/iv_expert"
                 android:padding="4dp"
-                android:text="订单信息"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_expert_intro"
@@ -61,7 +62,6 @@
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/iv_expert"
                 android:padding="4dp"
-                android:text="订单信息"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -73,8 +73,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/iv_expert"
                 android:padding="4dp"
-                android:text="订单信息"
-                android:textColor="@color/black"
+                android:textColor="@color/bg_app"
                 android:textSize="14sp" />
         </RelativeLayout>
     </com.cardview.CardView>
@@ -91,34 +90,57 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="10dp" >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_comment_top"
-                android:paddingLeft="10dp"
-                android:text="取消原因" />
+                android:paddingBottom="4dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:text="取消原因"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/bg_concel_order_reason"
+                android:paddingBottom="4dp"
                 android:paddingLeft="10dp"
-                android:text="我不想咨询了" />
+                android:paddingTop="4dp"
+                android:text="我不想咨询了"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="4dp"
+                android:paddingBottom="4dp"
                 android:paddingLeft="10dp"
-                android:text="我找到其他专家咨询了" />
+                android:paddingTop="4dp"
+                android:text="我找到其他专家咨询了"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="4dp"
+                android:paddingBottom="4dp"
                 android:paddingLeft="10dp"
+                android:paddingTop="4dp"
                 android:text="其他" />
         </LinearLayout>
     </com.cardview.CardView>
@@ -135,35 +157,41 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="10dp" >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_comment_top"
                 android:paddingLeft="10dp"
-                android:text="选择其他，请在此写详细理由" />
+                android:text="选择其他，请在此写详细理由"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/edit_resaon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="reason"
-                android:minHeight="80dp" />
+                android:gravity="left"
+                android:minHeight="80dp"
+                android:textColor="@color/text_content_color"
+                android:textSize="14sp" />
         </LinearLayout>
     </com.cardview.CardView>
 
-    
-     <Button
+    <Button
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_app_corners"
         android:gravity="center"
         android:text="@string/submit"
         android:textSize="18sp" />
-    
+
 </LinearLayout>

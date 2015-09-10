@@ -42,7 +42,8 @@ public class PayFragment extends Fragment implements OnClickListener{
 			String json = args.getString(Constant.EXTRA_JSON);
 			if (!TextUtils.isEmpty(json)) {
 				try {
-					parser = new TopicParser(new JSONObject(json).optJSONObject("data"));
+					parser = new TopicParser();
+					parser.parseData(new JSONObject(json).optJSONObject("data"));
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
@@ -70,7 +71,9 @@ public class PayFragment extends Fragment implements OnClickListener{
 	}
 
 	private void initData() {
-		ImageLoader.getInstance().displayImage(parser.getPhoto(), iv_expert);
+		if(!TextUtils.isEmpty(parser.getPhoto())) {
+			ImageLoader.getInstance().displayImage(parser.getPhoto(), iv_expert);
+		}
 		tv_expert_name.setText(parser.getTruename());
 		tv_expert_price.setText(parser.getPrice());
 		tv_expert_intro.setText(parser.getTitle());		

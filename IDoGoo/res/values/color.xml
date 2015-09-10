@@ -12,5 +12,7 @@
     <color name="sms_code">#ffffff</color>
     <color name="circle_image_border_color">#dbdbdb</color>
 
-    
+    <color name="edit_text_color">#a7a7a7</color>
+    <color name="text_content_color">#6e6e6e</color>
+    <color name="bg_concel_order_reason">#eeeeee</color>
 </resources>

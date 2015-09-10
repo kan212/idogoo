@@ -21,6 +21,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
@@ -31,7 +33,7 @@
                     android:contentDescription="@string/image_description"
                     android:maxHeight="54dp"
                     android:maxWidth="54dp"
-                    android:src="@drawable/ic_launcher"
+                    android:src="@drawable/ic_user_default"
                     app:drawBorder="false" />
 
                 <TextView
@@ -39,8 +41,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_vertical"
-                    android:text="用户名" >
+                    android:text="用户名"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" >
                 </TextView>
             </LinearLayout>
 
@@ -48,18 +54,20 @@
                 android:id="@+id/tv_topic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:text="用户名" >
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical|left"
+                android:textColor="@color/text_content_color"
+                android:textSize="14sp" >
             </TextView>
 
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:text="用户名" >
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical|left"
+                android:textColor="@color/text_content_color"
+                android:textSize="14sp" >
             </TextView>
 
             <LinearLayout
@@ -67,37 +75,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal" >
 
-                <Button
+                <TextView
                     android:id="@+id/btn_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/bg_bottom_left_corners_n"
+                    android:gravity="center"
+                    android:maxHeight="30dp"
+                    android:padding="4dp"
                     android:text="@string/detail"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-                <Button
+                <TextView
                     android:id="@+id/btn_cancel_order"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/bg_bottom_right_corners_n"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:maxHeight="30dp"
+                    android:padding="4dp"
                     android:text="@string/cancel_order"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/bg_app"
+                    android:textSize="14sp" />
             </LinearLayout>
-            
-            <Button 
-                android:visibility="gone"
+
+            <TextView
                 android:id="@+id/btn_ready_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:background="@drawable/bg_bottom_left_right_corners_n"
                 android:gravity="center"
+                android:maxHeight="30dp"
+                android:padding="4dp"
                 android:text="@string/detail"
                 android:textColor="@color/white"
-                android:background="@drawable/bg_bottom_left_right_corners_n"/>
+                android:visibility="gone" />
         </LinearLayout>
     </com.cardview.CardView>
 

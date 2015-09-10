@@ -8,7 +8,9 @@
     app:cardCornerRadius="6dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="false"
-    app:contentPadding="10dp" >
+    app:contentPaddingLeft="10dp"
+    app:contentPaddingRight="10dp"
+    app:contentPaddingTop="10dp" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,17 +18,17 @@
 
         <ImageView
             android:id="@+id/iv_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_launcher"
-            android:layout_centerVertical="true"
-            android:maxHeight="50dp"
-           />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_user_default" />
 
         <LinearLayout
+            android:id="@+id/linear_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@+id/iv_user"
             android:orientation="vertical" >
 
@@ -34,36 +36,53 @@
                 android:id="@+id/commnt_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
-            
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/commnt_tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
-            
-            <RatingBar 
+                android:layout_marginTop="10dp"
+                android:textColor="@color/bg_app"
+                android:textSize="16sp" />
+
+            <RatingBar
                 android:id="@+id/comment_rating_bar"
-                android:layout_height="wrap_content"
+                style="@style/myRootingBar"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:numStars="5"
                 android:rating="5"
-                />
-            
+                android:stepSize="0.5" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/user_tips"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                 >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:minHeight="24dp" >
             </android.support.v7.widget.RecyclerView>
-            
-             <TextView
+
+            <TextView
                 android:id="@+id/commnt_tv_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
-            
+                android:layout_marginTop="14dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
         </LinearLayout>
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/linear_comment"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_app" />
     </RelativeLayout>
 
 </com.cardview.CardView>

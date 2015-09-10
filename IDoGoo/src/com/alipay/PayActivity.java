@@ -15,10 +15,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alipay.sdk.app.PayTask;
 import com.idogoo.R;
+import com.idogoo.utils.Constant;
 
 public class PayActivity extends FragmentActivity implements OnClickListener {
 
@@ -77,20 +79,32 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 		};
 	};
 
+	private TextView mTitleView;
+	protected ImageView mLeftView, mRightView;
+	
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		setContentView(R.layout.pay_main);
+		mTitleView = (TextView) findViewById(R.id.tv_title);
+		mLeftView = (ImageView) findViewById(R.id.iv_title_left);
+		mRightView = (ImageView) findViewById(R.id.iv_title_right);
 	}
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
+		String title = getIntent().getStringExtra(Constant.EXTRA_TITLE);
+		mTitleView.setText(title);
+		mLeftView.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.iv_title_left:
+			finish();
+			break;
 		}
 	}
 
