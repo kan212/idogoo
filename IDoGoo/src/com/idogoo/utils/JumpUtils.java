@@ -18,6 +18,7 @@ import com.idogoo.fragment.OrderDetailFragment;
 import com.idogoo.fragment.PayFragment;
 import com.idogoo.fragment.RegisterFragment;
 import com.idogoo.fragment.ResetPwdFragment;
+import com.idogoo.fragment.RetPwdFragment;
 import com.idogoo.fragment.WaitAppointFragment;
 
 /**
@@ -139,6 +140,15 @@ public class JumpUtils {
 	public static void startBaseWebFragment(Context context,String url,String title) {
 		Intent intent = getIntentSub(context, BaseWebFragment.class, title);
 		intent.putExtra(Constant.EXTRA_URL, url);
+		context.startActivity(intent);
+	}
+	
+	/**
+	 * 找回密码
+	 * @param context
+	 */
+	public static void startRetPwdFragment(Context context) {
+		Intent intent = getIntentSub(context, RetPwdFragment.class, "找回密码");
 		context.startActivity(intent);
 	}
 	
