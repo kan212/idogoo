@@ -127,9 +127,11 @@ int id header_expert 0x7f070001
 int id item_touch_helper_previous_elevation 0x7f070000
 int id iv_des 0x7f070059
 int id iv_expert 0x7f07001d
+int id iv_no_net 0x7f070068
 int id iv_title_left 0x7f070004
 int id iv_title_right 0x7f07000f
 int id iv_user 0x7f070009
+int id layout_no_network 0x7f070067
 int id layout_title 0x7f07000e
 int id layout_user 0x7f070033
 int id left_drawer 0x7f070007
@@ -223,6 +225,7 @@ int layout item_tips 0x7f03001c
 int layout item_topic 0x7f03001d
 int layout load_footer 0x7f03001e
 int layout pay_main 0x7f03001f
+int layout view_no_network 0x7f030020
 int string action_settings 0x7f090001
 int string app_name 0x7f090000
 int string apponint 0x7f090012

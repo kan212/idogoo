@@ -386,9 +386,11 @@ containing a value of this type.
         public static final int item_touch_helper_previous_elevation=0x7f070000;
         public static final int iv_des=0x7f070059;
         public static final int iv_expert=0x7f07001d;
+        public static final int iv_no_net=0x7f070068;
         public static final int iv_title_left=0x7f070004;
         public static final int iv_title_right=0x7f07000f;
         public static final int iv_user=0x7f070009;
+        public static final int layout_no_network=0x7f070067;
         public static final int layout_title=0x7f07000e;
         public static final int layout_user=0x7f070033;
         public static final int left_drawer=0x7f070007;
@@ -484,6 +486,7 @@ containing a value of this type.
         public static final int item_topic=0x7f03001d;
         public static final int load_footer=0x7f03001e;
         public static final int pay_main=0x7f03001f;
+        public static final int view_no_network=0x7f030020;
     }
     public static final class string {
         public static final int action_settings=0x7f090001;
