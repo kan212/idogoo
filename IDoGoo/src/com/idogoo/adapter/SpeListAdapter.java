@@ -35,6 +35,11 @@ public class SpeListAdapter extends BaseAdapter {
 		this.mList = list;
 		super.notifyDataSetChanged();
 	}
+	
+	public void addList(List<SpeListItem> list) {
+		this.mList.addAll(list);
+		super.notifyDataSetChanged();
+	}
 
 	@Override
 	public int getCount() {

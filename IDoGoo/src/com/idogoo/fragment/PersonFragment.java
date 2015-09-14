@@ -3,7 +3,9 @@ package com.idogoo.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.res.Resources.Theme;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.idogoo.R;
@@ -43,6 +44,7 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 	private CircleImageView iv_User;
 	private static final int RESULT_REQUEST_CODE = 2;
 	private String userIconFilePath;
+	private ImageView iv_title_left;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 		tv_Pwd = (TextView) findViewById(R.id.tv_pwd);
 		tv_Tel = (TextView) findViewById(R.id.tv_tel);
 		iv_User = (CircleImageView) findViewById(R.id.iv_user);
+		iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
 	}
 
 	@Override
@@ -66,6 +69,7 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 		super.onPostCreate(savedInstanceState);
 		iv_User.setOnClickListener(this);
 		logoutBtn.setOnClickListener(this);
+		iv_title_left.setOnClickListener(this);
 		reqestData();
 	}
 
@@ -100,6 +104,9 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 		case R.id.logout_btn:
 			logoutUser();
 			break;
+		case R.id.iv_title_left:
+			finish();
+			break;
 		default:
 			break;
 		}
@@ -124,7 +131,6 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 				break;
 			}
 		}
-
 	}
 
 	/**

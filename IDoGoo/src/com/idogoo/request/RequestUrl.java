@@ -32,20 +32,17 @@ public class RequestUrl {
 
 	public static final String AUTH_TOKEN = "ba1b8cbe47c2a4466a6fb690b3d2f1b9";
 
-	public static final Request<BaseParser> getSpeListReqeust(
-			SpeListParser parser, OnProtocolTaskListener callBack, int type,
-			int begin, int end) {
+	public static final String getSpeListReqeust(int begin) {
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		pairs.add(new BasicNameValuePair("type", 99 + ""));
-		pairs.add(new BasicNameValuePair("begin", 0 + ""));
-		pairs.add(new BasicNameValuePair("end", 4 + ""));
+		pairs.add(new BasicNameValuePair("begin", begin + ""));
+		pairs.add(new BasicNameValuePair("end", (begin + 4) + ""));
 		pairs.add(new BasicNameValuePair("num", "20"));
 		pairs.add(new BasicNameValuePair("client_ticket", Variable
 				.getInstance().getAccess_key()));
 		String url = IDoGooUtils.format(speListUrl, pairs, true);
 		Config.i(url);
-		Request<BaseParser> request = new IDoGooRequest(url, parser, callBack);
-		return request;
+		return url;
 	}
 
 	/**

@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:background="@drawable/bg_app_corners"
         android:text="拍摄照片"
-        android:textColor="#525252"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
     <View
@@ -27,7 +27,7 @@
         android:layout_height="50dp"
         android:background="@drawable/bg_app_corners"
         android:text="从图片库中选择"
-        android:textColor="#525252"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
     <Button
@@ -37,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_app_corners"
         android:text="取消"
-        android:textColor="#525252"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
 </LinearLayout>

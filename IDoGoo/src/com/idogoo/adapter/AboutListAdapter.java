@@ -108,11 +108,7 @@ public class AboutListAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				JumpUtils.startOrderDetailFragment(
-						mContext,
-						"订单详情",
-						"user".equals(uType) ? item.getUser_id() : item
-								.getSpecialist_id(), uType, item.getId());
+				JumpTo(item);
 			}
 		});
 		holder.btn_ready_detail.setOnClickListener(new OnClickListener() {
@@ -126,6 +122,45 @@ public class AboutListAdapter extends BaseAdapter {
 								.getSpecialist_id(), uType, item.getId());
 			}
 		});
+	}
+
+	protected void JumpTo(AboutItem item) {
+		switch (item.getStatus()) {
+		//取消约见
+		case 4:
+			
+			break;
+		//等待付款
+		case 0:
+		case 2:
+			
+			break;
+		//待确认信息
+		case 6:
+			
+			break;
+		//等待约见确认
+		case 3:
+			
+			break;
+		//进行中
+		case 5:
+			
+			break;
+		//交易失败
+		case 7:
+			
+			break;
+		//交易成功
+		case 1:
+			
+			break;
+		}
+		JumpUtils.startOrderDetailFragment(
+				mContext,
+				"订单详情",
+				"user".equals(uType) ? item.getUser_id() : item
+						.getSpecialist_id(), uType, item.getId());
 	}
 
 	private class ViewHolder {

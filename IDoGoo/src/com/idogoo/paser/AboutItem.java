@@ -27,7 +27,7 @@ public class AboutItem extends BaseParser implements Serializable{
 	private int if_complete;
 	private String completeTimestamp;
 	private String createTimestamp;
-	private String status;
+	private int status;
 	private String status_cn;
 	private String specialist_name;
 	private String self_url;
@@ -82,7 +82,7 @@ public class AboutItem extends BaseParser implements Serializable{
 		this.if_complete = obj.optInt("if_complete");
 		this.completeTimestamp = obj.optString("completeTimestamp");
 		this.createTimestamp = obj.optString("createTimestamp");
-		this.status = obj.optString("status");
+		this.status = obj.optInt("status");
 		this.status_cn = obj.optString("status_cn");
 		this.specialist_name = obj.optString("specialist_name");
 		this.self_url = obj.optString("self_url");
@@ -184,7 +184,7 @@ public class AboutItem extends BaseParser implements Serializable{
 		return createTimestamp;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 

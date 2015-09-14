@@ -1,6 +1,15 @@
 package com.idogoo.fragment;
 
-import com.android.volley.Request;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+
 import com.idogoo.R;
 import com.idogoo.adapter.SpeListAdapter;
 import com.idogoo.inter.OnProtocolTaskListener;
@@ -12,17 +21,7 @@ import com.idogoo.request.IDoGooRequest;
 import com.idogoo.request.RequestUrl;
 import com.idogoo.utils.Config;
 import com.idogoo.utils.JumpUtils;
-import com.idogoo.widget.MyEditText;
 import com.idogoo.widget.PullRefreshLayout;
-
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 /**
  * 
@@ -35,8 +34,9 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 	private View mView;
 	private ListView mListView;
 	private PullRefreshLayout mPullRefreshLayout;
-	 
+	IDoGooRequest request ;
 	private SpeListAdapter mAdapter;
+	private int start = 0;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		initData();
-		requetData();
+		requetData(false);
 	}
 
 	/**
@@ -66,19 +66,27 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 	private void initData() {
 		mAdapter = new SpeListAdapter(getActivity());
 		mListView.setAdapter(mAdapter);
+		mListView.setOnScrollListener(mOnScrollListener);
 		mListView.setOnItemClickListener(mOnItemClickListener);
 	}
 
-	private void requetData() {
+	private void requetData(final boolean isLoadMore) {
 		SpeListParser parser = new SpeListParser();
-		Request<BaseParser> request = null;
-		request = RequestUrl.getSpeListReqeust(parser,new OnProtocolTaskListener() {
-			
+		if (null != request && !request.hasHadResponseDelivered()) {
+			request.cancel();
+		}
+		if(isLoadMore) {
+			start += 5;
+		}
+		OnProtocolTaskListener callBack = new OnProtocolTaskListener() {
+
 			@Override
 			public void onProgressUpdate(BaseParser parser) {
-				refreshData((SpeListParser) parser);
+				refreshData(isLoadMore, (SpeListParser) parser);
 			}
-		},0,0,0);
+		};
+		request = new IDoGooRequest(RequestUrl.getSpeListReqeust(start), parser, callBack);
+		
 		HttpUtil.addRequest(request,true);
 	}
 
@@ -86,12 +94,37 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 	 * 刷新视图
 	 * @param parser
 	 */
-	protected void refreshData(SpeListParser parser) {
-		Config.e(parser.getCode());
+	protected void refreshData(boolean isLoadMore,SpeListParser parser) {
 		if(parser.getCode() == BaseParser.SUCCESS) {
-			mAdapter.setList(parser.getList());
+			if(!isLoadMore) {
+				mAdapter.setList(parser.getList());
+			}else {
+				mAdapter.addList(parser.getList());
+			}
 		}
 	}
+	
+	OnScrollListener mOnScrollListener = new OnScrollListener() {
+		private boolean isScollToFoot;
+
+		@Override
+		public void onScrollStateChanged(AbsListView view, int scrollState) {
+			if (scrollState == SCROLL_STATE_IDLE && isScollToFoot) {
+				requetData(true);
+			}
+		}
+		
+		@Override
+		public void onScroll(AbsListView view, int firstVisibleItem,
+				int visibleItemCount, int totalItemCount) {
+			if (firstVisibleItem + visibleItemCount == totalItemCount) {
+				isScollToFoot = true;
+			} else {
+				isScollToFoot = false;
+			}
+		}
+	};
+	
 	
 	OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
 

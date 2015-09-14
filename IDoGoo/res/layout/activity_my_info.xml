@@ -3,29 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res/com.idogoo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp" >
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:background="@color/bg_app" >
+
+        <ImageView
+            android:id="@+id/iv_title_left"
+            style="@style/btn_title"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@string/image_description"
+            android:onClick="onClick"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/tv_title_white"
+                android:text="我的资料"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_title_right"
+            style="@style/btn_title"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/image_description"
+            android:onClick="onClick" />
+    </RelativeLayout>
 
     <com.idogoo.widget.CircleImageView
         android:id="@+id/iv_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
         android:layout_gravity="center_horizontal"
-        android:minHeight="100dp"
-        android:minWidth="100dp"
         android:scaleType="fitXY"
+        android:src="@drawable/ic_user_default"
         app:drawBorder="false" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="点击头像修改"
-        android:textColor="@color/black" />
+        android:textColor="#565656"
+        android:textSize="16sp" />
 
     <com.cardview.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_marginTop="40dp"
         app:cardCornerRadius="10dp"
         app:cardPreventCornerOverlap="false"
@@ -37,27 +77,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:paddingLeft="10dp" >
 
                 <TextView
+                    android:id="@+id/tv_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="昵称" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="昵称"
+                    android:textColor="#565656"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_nick_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_1"
+                    android:textColor="#565656"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
-            </LinearLayout>
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="6dp"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -66,27 +119,40 @@
                 android:background="@color/gray" >
             </View>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:paddingLeft="10dp" >
 
                 <TextView
+                    android:id="@+id/tv_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="密码" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="密码"
+                    android:textColor="#565656"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_pwd"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_2"
+                    android:textColor="#565656"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
-            </LinearLayout>
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="6dp"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -95,27 +161,40 @@
                 android:background="@color/gray" >
             </View>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:paddingLeft="10dp" >
 
                 <TextView
+                    android:id="@+id/tv_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="手机号" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="手机号"
+                    android:textColor="#565656"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_tel"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_3"
+                    android:textColor="#565656"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
-            </LinearLayout>
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="6dp"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/ic_left" />
+            </RelativeLayout>
         </LinearLayout>
     </com.cardview.CardView>
 
