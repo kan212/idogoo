@@ -32,7 +32,6 @@ import com.idogoo.widget.PullRefreshLayout;
 public class SpeListFragment extends BaseFragmentHasFooter {
 
 	private View mView;
-	private ListView mListView;
 	private PullRefreshLayout mPullRefreshLayout;
 	IDoGooRequest request ;
 	private SpeListAdapter mAdapter;
@@ -78,6 +77,11 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 		if(isLoadMore) {
 			start += 5;
 		}
+		if(start > 95) {
+			setLoadMoreState(isLoadMore, BaseParser.EMPTY);
+			return;
+		}
+		
 		OnProtocolTaskListener callBack = new OnProtocolTaskListener() {
 
 			@Override
@@ -95,6 +99,11 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 	 * @param parser
 	 */
 	protected void refreshData(boolean isLoadMore,SpeListParser parser) {
+		if (isDetached() || null == getActivity()) {
+			return;
+		}
+		setLoadMoreState(isLoadMore, parser.getCode());
+		
 		if(parser.getCode() == BaseParser.SUCCESS) {
 			if(!isLoadMore) {
 				mAdapter.setList(parser.getList());
@@ -102,6 +111,19 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 				mAdapter.addList(parser.getList());
 			}
 		}
+		isLoadedOver(isLoadMore);
+	}
+	
+	private void isLoadedOver(final boolean isLoadMore) {
+		mListView.post(new Runnable() {
+			@Override
+			public void run() {
+				if (!isLoadMore && mAdapter != null
+						&& mListView.getLastVisiblePosition() == mAdapter.getCount()) {
+					setLoadMoreState(isLoadMore, BaseParser.EMPTY);
+				}	
+			}
+		});
 	}
 	
 	OnScrollListener mOnScrollListener = new OnScrollListener() {
@@ -132,6 +154,11 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			if(position < 0) {
+				return;
+			}
+			if (position == mAdapter.getCount()) {
+				setLoadMoreState(true, BaseParser.SUCCESS);
+				requetData(true);
 				return;
 			}
 			SpeListItem item = mAdapter.getItem(position);

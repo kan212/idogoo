@@ -127,6 +127,9 @@ public class BaseParser {
 
 	private void parseStatus(JSONObject obj) {
 		this.code = obj.optInt("code");
+		if(code == 11) {
+			setCode(EMPTY);
+		}
 		this.msg = obj.optString("msg");
 	}
 
