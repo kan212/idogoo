@@ -14,6 +14,7 @@ import com.idogoo.paser.BaseParser;
 import com.idogoo.paser.SpeListParser;
 import com.idogoo.utils.Config;
 import com.idogoo.utils.IDoGooUtils;
+import com.idogoo.utils.MD5;
 import com.idogoo.utils.Variable;
 
 public class RequestUrl {
@@ -343,6 +344,45 @@ public class RequestUrl {
 		pairs.add(new BasicNameValuePair("meet_location", meet_location));
 		pairs.add(new BasicNameValuePair("client_ticket", Variable
 				.getInstance().getAccess_key()));
+		return URLEncodedUtils.format(pairs, "utf-8");
+	}
+	
+	public static final String UrlGenOrderMeetByUser = "http://www.idogoo.com/meet/cltapi/genOrderMeetByUser";
+	/**
+	 * 
+	 * @param order_id 
+	 * 话题id
+	 * @param spclt_id
+	 * 专家id
+	 * @param topic_title
+	 * 话题名称
+	 * @param price
+	 * 价格
+	 * @param requirements
+	 * 用户需求
+	 * @param user_summary
+	 * 用户简介
+	 * @param meet_time
+	 * 约见时间
+	 * @param meet_location
+	 * 约见地点
+	 * @return
+	 */
+	public static final String postGenOrderMeetByUser(String user_id,String topic_id,String spclt_id,String topic_title,String price,String requirements, String user_summary, String meet_time,
+			String meet_location) {
+		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+		pairs.add(new BasicNameValuePair("topic_id", topic_id));
+		pairs.add(new BasicNameValuePair("spclt_id", spclt_id));
+		pairs.add(new BasicNameValuePair("topic_title", topic_title));
+		pairs.add(new BasicNameValuePair("mocc", MD5.EncoderByMD5(user_id + topic_id + spclt_id).toLowerCase()));
+		pairs.add(new BasicNameValuePair("price", price));
+		pairs.add(new BasicNameValuePair("requirements", requirements + "12"));
+		pairs.add(new BasicNameValuePair("user_summary", user_summary+ "12"));
+		pairs.add(new BasicNameValuePair("meet_time", meet_time+ "12"));
+		pairs.add(new BasicNameValuePair("meet_location", meet_location+ "12"));
+		pairs.add(new BasicNameValuePair("client_ticket", Variable
+				.getInstance().getAccess_key()));
+		Config.e(pairs.toString());
 		return URLEncodedUtils.format(pairs, "utf-8");
 	}
 

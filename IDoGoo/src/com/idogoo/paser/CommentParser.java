@@ -33,6 +33,8 @@ public class CommentParser extends BaseParser {
 			CommentItem item = new CommentItem(array.optJSONObject(i));
 			if (null != item) {
 				mList.add(item);
+				mList.add(item);
+				mList.add(item);
 			}
 		}
 	}

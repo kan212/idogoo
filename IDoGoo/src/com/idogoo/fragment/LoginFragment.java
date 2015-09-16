@@ -18,6 +18,7 @@ import com.idogoo.paser.LoginParser;
 import com.idogoo.request.HttpUtil;
 import com.idogoo.request.IDoGooRequest;
 import com.idogoo.request.RequestUrl;
+import com.idogoo.utils.Config;
 import com.idogoo.utils.JumpUtils;
 import com.idogoo.utils.Variable;
 
@@ -97,7 +98,10 @@ public class LoginFragment extends Fragment implements OnClickListener {
 //			UserInfoDB.insert(db, parser.getContentValues());
 //			db.endTransaction();
 			Variable.getInstance().setUserLogin(true);
-			getActivity().finish();
+			Config.i("getSessionId: " + Variable.getInstance().getSessionId());
+			if(null != getActivity()) {
+				getActivity().finish();
+			}
 		} else {
 			Toast.makeText(getActivity(), parser.getMsg(), Toast.LENGTH_SHORT)
 					.show();

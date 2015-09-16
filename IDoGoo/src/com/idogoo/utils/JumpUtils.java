@@ -10,12 +10,12 @@ import com.idogoo.fragment.AboutFragment;
 import com.idogoo.fragment.AppointFragment;
 import com.idogoo.fragment.BaseWebFragment;
 import com.idogoo.fragment.CancelOrderFragment;
+import com.idogoo.fragment.ExpertConfirmFragment;
 import com.idogoo.fragment.ExpertDetailFragment;
 import com.idogoo.fragment.ExpertSetFragment;
 import com.idogoo.fragment.LoginFragment;
 import com.idogoo.fragment.MessageFragment;
 import com.idogoo.fragment.OrderDetailFragment;
-import com.idogoo.fragment.PayFragment;
 import com.idogoo.fragment.RegisterFragment;
 import com.idogoo.fragment.ResetPwdFragment;
 import com.idogoo.fragment.RetPwdFragment;
@@ -75,9 +75,10 @@ public class JumpUtils {
 		context.startActivity(intent);
 	}
 
-	public static void startAppoint(Context context, String topicId) {
+	public static void startAppoint(Context context, String topicId,String json) {
 		Intent intent = getIntentSub(context, AppointFragment.class, "约见");
 		intent.putExtra(Constant.KEY_TOPIC_ID, topicId);
+		intent.putExtra(Constant.EXTRA_JSON, json);
 		context.startActivity(intent);
 	}
 
@@ -102,6 +103,7 @@ public class JumpUtils {
 		intent.putExtra(Constant.EXTRA_TITLE, "支付");
 		context.startActivity(intent);
 	}
+	
 
 	/**
 	 * 订单详情
@@ -126,6 +128,13 @@ public class JumpUtils {
 	
 	public static void startCancelOrderFragment(Context context,String order_id, String json) {
 		Intent intent = getIntentSub(context, CancelOrderFragment.class, "取消约见");
+		intent.putExtra(Constant.KEY_ORDER_ID, order_id);
+		intent.putExtra(Constant.EXTRA_JSON, json);
+		context.startActivity(intent);
+	}
+	
+	public static void startExpertConfirmFragment(Context context,String order_id, String json) {
+		Intent intent = getIntentSub(context, ExpertConfirmFragment.class, "专家已确认");
 		intent.putExtra(Constant.KEY_ORDER_ID, order_id);
 		intent.putExtra(Constant.EXTRA_JSON, json);
 		context.startActivity(intent);

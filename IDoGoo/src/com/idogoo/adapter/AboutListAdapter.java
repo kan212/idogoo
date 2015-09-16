@@ -85,11 +85,13 @@ public class AboutListAdapter extends BaseAdapter {
 
 	private void bindData(ViewHolder holder, final AboutItem item) {
 
-		if ("user".equals(uType) || mType == AboutListFragment.ONGOING) {
+		if ("user".equals(uType) && mType == AboutListFragment.ONGOING) {
 			holder.btn_layout.setVisibility(View.VISIBLE);
+			holder.btn_cancel_order.setVisibility(View.VISIBLE);
 			holder.btn_ready_detail.setVisibility(View.GONE);
 		} else {
 			holder.btn_layout.setVisibility(View.GONE);
+			holder.btn_cancel_order.setVisibility(View.GONE);
 			holder.btn_ready_detail.setVisibility(View.VISIBLE);
 		}
 

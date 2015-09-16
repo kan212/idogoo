@@ -6,6 +6,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.idogoo.utils.Config;
+
 public class AboutParser extends BaseParser {
 
 	List<AboutItem> list = new ArrayList<AboutItem>();
@@ -36,12 +38,15 @@ public class AboutParser extends BaseParser {
 		for (int i = 0; i < array.length(); i++) {
 			AboutItem item = new AboutItem(array.optJSONObject(i));
 			if (null != item) {
-				if ("4".equals(item.getStatus())
-						|| "1".equals(item.getStatus())
-						|| "7".equals(item.getStatus())) {
+				switch (item.getStatus()) {
+				case 4:
+				case 1:
+				case 7:
 					readyList.add(item);
-				}else {
+					break;
+				default:
 					onGoingList.add(item);
+					break;
 				}
 			}
 		}

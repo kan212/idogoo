@@ -36,7 +36,7 @@ public class ExpertDetailFragment extends Fragment {
 	private String mUid;
 
 	private RoundedImageView iv_user;
-	private TextView tv_name, tv_location, tv_summary,tv_meet,tv_opinion;
+	private TextView tv_name, tv_location, tv_summary,tv_meet,tv_opinion,tv_expert_topic;
 	private RecyclerView userTip;
 	private TipsAdapter mTipsAdapter;
 	private LinearLayout topicLayout;
@@ -72,6 +72,7 @@ public class ExpertDetailFragment extends Fragment {
 		tv_opinion = (TextView) mHeaderView.findViewById(R.id.tv_opinion);
 		tv_meet = (TextView) mHeaderView.findViewById(R.id.tv_meet);
 		userTip = (RecyclerView) mHeaderView.findViewById(R.id.user_tips);
+		tv_expert_topic = (TextView) mHeaderView.findViewById(R.id.tv_expert_topic);
 		topicLayout = (LinearLayout) mHeaderView
 				.findViewById(R.id.topic_layout);
 		userTip.setHasFixedSize(true);
@@ -135,6 +136,7 @@ public class ExpertDetailFragment extends Fragment {
 				tv_location.setText(userInfo.getYour_city());
 				tv_name.setText(userInfo.getTruename());
 				tv_summary.setText(userInfo.getSummary());
+				tv_expert_topic.setText(userInfo.getTopic());
 			}
 			tv_meet.setText("被约见  " + parser.getMeet_num() + "次");
 			mTipsAdapter = new TipsAdapter(getActivity(), parser.getTagList());
@@ -166,7 +168,7 @@ public class ExpertDetailFragment extends Fragment {
 				
 				@Override
 				public void onClick(View v) {
-					JumpUtils.startAppoint(getActivity(),item.getTopic_id());
+					JumpUtils.startAppoint(getActivity(),item.getTopic_id(),item.toString());
 				}
 			});
 			topicLayout.addView(v);

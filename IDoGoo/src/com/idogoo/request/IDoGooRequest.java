@@ -19,6 +19,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.RequestFuture;
 import com.idogoo.inter.OnProtocolTaskListener;
 import com.idogoo.paser.BaseParser;
+import com.idogoo.utils.Config;
 import com.idogoo.utils.Variable;
 
 public class IDoGooRequest extends Request<BaseParser> {
@@ -138,6 +139,7 @@ public class IDoGooRequest extends Request<BaseParser> {
 		if(!TextUtils.isEmpty(Variable.getInstance().getSessionId())) {
 			headers.put("Cookie", Variable.getInstance().getSessionId());
 		}
+		Config.e(Variable.getInstance().getSessionId());
 		return headers;
 	}
 
@@ -149,12 +151,14 @@ public class IDoGooRequest extends Request<BaseParser> {
 			if (null != parser) {
 				parser.parse(json);
 			}
+			
 			if (isLogin) {
 //				String phpsessid = response.headers.get("Set-Cookie");
 //				Variable.getInstance().setSessionId(phpsessid);
 				for(String s : response.headers.keySet()) {
 					if(s.contains("Set-Cookie")) {
 						Variable.getInstance().setSessionId(response.headers.get(s));
+						Config.i("phpsessid: " + response.headers.get(s));
 					}
 				}
 			}

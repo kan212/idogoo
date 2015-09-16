@@ -14,6 +14,7 @@
     <string name="reset_pwd">忘记密码</string>
     <string name="submit">提交</string>
     <string name="pay">支付宝支付</string>
+    <string name="set_time_location">设置时间和地点</string>
     <string name="logout">退出登录</string>
     <string name="evaluation">评价</string>
     <string name="ready">好了</string>

@@ -53,6 +53,10 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 				if (TextUtils.equals(resultStatus, "9000")) {
 					Toast.makeText(PayActivity.this, "支付成功", Toast.LENGTH_SHORT)
 							.show();
+					if(null != mPayResultLisenter) {
+						mTitleView.setText("支付成功");
+						mPayResultLisenter.success();
+					}
 				} else {
 					// 判断resultStatus 为非“9000”则代表可能支付失败
 					// “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
@@ -64,6 +68,10 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 						// 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
 						Toast.makeText(PayActivity.this, "支付失败",
 								Toast.LENGTH_SHORT).show();
+					}
+					if(null != mPayResultLisenter) {
+						mTitleView.setText("支付失败");
+						mPayResultLisenter.fail();
 					}
 				}
 				break;
@@ -110,7 +118,7 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 
 	public void pay() {
 		// 订单
-		String orderInfo = getOrderInfo("测试的商品", "该测试商品的详细描述", "0.01");
+		String orderInfo = getOrderInfo("test", "111", "0.01");
 
 		// 对订单做RSA 签名
 		String sign = sign(orderInfo);
@@ -253,6 +261,16 @@ public class PayActivity extends FragmentActivity implements OnClickListener {
 	 */
 	public String getSignType() {
 		return "sign_type=\"RSA\"";
+	}
+	
+	private PayResultLisenter mPayResultLisenter;
+	public void setPayResultLisenter(PayResultLisenter l) {
+		this.mPayResultLisenter = l;
+	}
+	
+	public interface PayResultLisenter {
+		void success();
+		void fail();
 	}
 
 }

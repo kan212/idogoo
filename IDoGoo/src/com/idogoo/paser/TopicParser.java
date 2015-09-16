@@ -60,6 +60,7 @@ public class TopicParser extends BaseParser {
 		if (null == obj) {
 			return;
 		}
+		this.id = obj.optString("id");
 		this.topic_id = obj.optString("topic_id");
 		this.user_id = obj.optString("user_id");
 		this.specialist_id = obj.optString("specialist_id");

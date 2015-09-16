@@ -55,6 +55,7 @@ public class Variable {
 	}
 	
 	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 		save(Constant.KEY_SEESION_ID, sessionId);
 	}
 	
