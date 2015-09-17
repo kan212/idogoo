@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +27,9 @@ import com.idogoo.utils.Variable;
 public class LoginFragment extends Fragment implements OnClickListener {
 
 	private View mView;
-	private TextView userNameView, passwordView, registerView, resetView;
+	private TextView registerView, resetView;
 	private Button loginBtn;
+	private EditText userNameView, passwordView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,8 +41,8 @@ public class LoginFragment extends Fragment implements OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.fragment_login, container, false);
-		userNameView = (TextView) mView.findViewById(R.id.login_name_view);
-		passwordView = (TextView) mView.findViewById(R.id.login_sms_view);
+		userNameView = (EditText) mView.findViewById(R.id.login_name_view);
+		passwordView = (EditText) mView.findViewById(R.id.login_sms_view);
 		loginBtn = (Button) mView.findViewById(R.id.login_btn);
 		registerView = (TextView) mView.findViewById(R.id.tv_register);
 		resetView = (TextView) mView.findViewById(R.id.tv_reset_pwd);
@@ -52,7 +55,30 @@ public class LoginFragment extends Fragment implements OnClickListener {
 		loginBtn.setOnClickListener(this);
 		registerView.setOnClickListener(this);
 		resetView.setOnClickListener(this);
+		userNameView.setOnFocusChangeListener(mOnFocusChangeListener);
+		passwordView.setOnFocusChangeListener(mOnFocusChangeListener);
 	}
+
+	private OnFocusChangeListener mOnFocusChangeListener = new OnFocusChangeListener() {
+
+		@Override
+		public void onFocusChange(View v, boolean hasFocus) {
+
+			EditText tv = (EditText) v;
+			if (null == tv) {
+				return;
+			}
+			String hint;
+			if (hasFocus) {
+				hint = tv.getHint().toString();
+				tv.setTag(hint);
+				tv.setText("");
+			} else {
+				hint = tv.getTag().toString();
+				tv.setText(hint);
+			}
+		}
+	};
 
 	@Override
 	public void onDestroyView() {
@@ -93,13 +119,13 @@ public class LoginFragment extends Fragment implements OnClickListener {
 
 	protected void initData(LoginParser parser) {
 		if (BaseParser.SUCCESS == parser.getCode()) {
-//			SQLiteDatabase db = IDoGooApp.getDatabaseHelper().getDatabase();
-//			db.beginTransaction();
-//			UserInfoDB.insert(db, parser.getContentValues());
-//			db.endTransaction();
+			// SQLiteDatabase db = IDoGooApp.getDatabaseHelper().getDatabase();
+			// db.beginTransaction();
+			// UserInfoDB.insert(db, parser.getContentValues());
+			// db.endTransaction();
 			Variable.getInstance().setUserLogin(true);
 			Config.i("getSessionId: " + Variable.getInstance().getSessionId());
-			if(null != getActivity()) {
+			if (null != getActivity()) {
 				getActivity().finish();
 			}
 		} else {

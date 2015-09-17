@@ -26,7 +26,6 @@ public class IDoGooApp extends Application {
 	private static DatabaseHelper mDBHelper;
 	private static Context mContext;
 	public static int mVersionCode;
-	private PushAgent mPushAgent;
 
 	@Override
 	public void onCreate() {
@@ -35,8 +34,6 @@ public class IDoGooApp extends Application {
 		mDBHelper = DatabaseHelper.getInstance(this);
 		initImageLoader(getApplicationContext());
 		AppUncaughtException.getIntance().init(getApplicationContext());
-		mPushAgent = PushAgent.getInstance(this);
-		mPushAgent.setDebugMode(true);
 	}
 
 	public static DatabaseHelper getDatabaseHelper() {

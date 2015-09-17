@@ -71,9 +71,34 @@ public class AppointFragment extends Fragment implements OnClickListener {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		btn_submit.setOnClickListener(this);
+		editQusetion.setOnFocusChangeListener(mOnFocusChangeListener);
+		editInfo.setOnFocusChangeListener(mOnFocusChangeListener);
+		editPosition.setOnFocusChangeListener(mOnFocusChangeListener);
+		editTime.setOnFocusChangeListener(mOnFocusChangeListener);
 		requestData();
 	}
 
+	OnFocusChangeListener mOnFocusChangeListener = new OnFocusChangeListener() {
+		
+		@Override
+		public void onFocusChange(View v, boolean hasFocus) {
+			EditText tv = (EditText) v;
+			if (null == tv) {
+				Config.e("edittext is null");
+				return;
+			}
+			String hint;
+			if(hasFocus) {
+				hint = tv.getHint().toString();
+				tv.setTag(hint);
+				tv.setHint("");
+			}else {
+				hint = tv.getTag().toString();
+				tv.setHint(hint);
+			}
+		}
+	};
+	
 	private void requestData() {
 		TopicParser parser = new TopicParser();
 		IDoGooRequest request = new IDoGooRequest(

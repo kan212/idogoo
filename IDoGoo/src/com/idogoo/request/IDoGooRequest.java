@@ -156,7 +156,7 @@ public class IDoGooRequest extends Request<BaseParser> {
 //				String phpsessid = response.headers.get("Set-Cookie");
 //				Variable.getInstance().setSessionId(phpsessid);
 				for(String s : response.headers.keySet()) {
-					if(s.contains("Set-Cookie")) {
+					if(s.endsWith("Set-Cookie")) {
 						Variable.getInstance().setSessionId(response.headers.get(s));
 						Config.i("phpsessid: " + response.headers.get(s));
 					}

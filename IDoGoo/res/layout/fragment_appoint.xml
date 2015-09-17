@@ -120,19 +120,24 @@
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
-                <EditText
+                  <EditText
                     android:id="@+id/edit_qustion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="left"
-                    android:minHeight="80dp"
+                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="left"
+                    android:hint=""
+                    android:minHeight="80dp"
                     android:textColor="@color/edit_text_color"
+                    android:textCursorDrawable="@null"
                     android:textSize="12sp" />
+                
             </LinearLayout>
         </com.cardview.CardView>
 
@@ -140,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@android:color/white"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
             app:cardPreventCornerOverlap="false"
             app:cardUseCompatPadding="false" >
@@ -162,21 +167,23 @@
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
+                
                 <EditText
                     android:id="@+id/edit_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:focusableInTouchMode="true"
-                    android:gravity="left"
-                    android:hint="请提供必要的个人简介信息，以便专家能够根据你的情况，为你定制个性化的解决方案"
-                    android:maxLines="2"
-                    android:minHeight="80dp"
+                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="left"
+                    android:hint="请提供必要的个人简介信息，以便专家能够根据你的情况，为你定制个性化的解决方案"
+                    android:minHeight="80dp"
                     android:textColor="@color/edit_text_color"
+                    android:textCursorDrawable="@null"
                     android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>
@@ -208,16 +215,18 @@
                     android:id="@+id/edit_position"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
                     android:background="@null"
+                    android:cursorVisible="true"
                     android:focusableInTouchMode="true"
                     android:gravity="left"
                     android:hint="请清楚告知专家你倾向的见面地点"
                     android:minHeight="80dp"
-                   android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
                     android:textColor="@color/edit_text_color"
+                    android:textCursorDrawable="@null"
                     android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>
@@ -245,20 +254,23 @@
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
+                
                 <EditText
                     android:id="@+id/edit_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
                     android:background="@null"
+                    android:cursorVisible="true"
                     android:focusableInTouchMode="true"
                     android:gravity="left"
                     android:hint="请清楚告知专家你未来两周内方便或者不方便的时间，以便和专家的时间进行匹配，提高效率"
                     android:minHeight="80dp"
-                   android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
                     android:textColor="@color/edit_text_color"
+                    android:textCursorDrawable="@null"
                     android:textSize="12sp" />
             </LinearLayout>
         </com.cardview.CardView>

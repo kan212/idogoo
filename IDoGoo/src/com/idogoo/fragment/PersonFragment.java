@@ -75,7 +75,6 @@ public class PersonFragment extends Fragment {
 		mList = new ArrayList<PersonItem>();
 		mList.add(new PersonItem(PersonItem.COVENANT));
 		mList.add(new PersonItem(PersonItem.ABOUT));
-		mList.add(new PersonItem(PersonItem.MESSAGE));
 		mList.add(new PersonItem(PersonItem.INFORMATION));
 		mAdapter = new PersonAdapter(getActivity());
 		mListView.setAdapter(mAdapter);
@@ -107,9 +106,6 @@ public class PersonFragment extends Fragment {
 				break;
 			case PersonItem.INFORMATION:
 				JumpUtils.startUserInfo(getActivity(),parser.getId());
-				break;
-			case PersonItem.MESSAGE:
-				JumpUtils.startLogin(getActivity());
 				break;
 			default:
 				break;
