@@ -22,6 +22,7 @@ import com.idogoo.request.RequestUrl;
 import com.idogoo.utils.Config;
 import com.idogoo.utils.Constant;
 import com.idogoo.utils.JumpUtils;
+import com.idogoo.utils.Variable;
 import com.idogoo.widget.CircleImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -137,9 +138,13 @@ public class AppointFragment extends Fragment implements OnClickListener {
 
 	private void submitInfo(String s1, String s2, String s3, String s4) {
 		BaseParser parser = new BaseParser();
+
+		if(!Variable.getInstance().getUserLogin()) {
+			JumpUtils.startLogin(getActivity());
+			return;
+		}
 		LoginParser mLoginParser = new LoginParser();
 		mLoginParser.parse(mLoginParser.readCache());
-
 		Config.e(mLoginParser.getId());
 		if (null == mTopicParser) {
 			return;

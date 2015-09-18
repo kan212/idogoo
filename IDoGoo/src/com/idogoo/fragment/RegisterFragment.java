@@ -16,6 +16,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,6 +61,43 @@ public class RegisterFragment extends Fragment implements OnClickListener {
 		smsCodeView = (TextView) mView.findViewById(R.id.sms_code_view);
 		return mView;
 	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		smsCodeView.setOnClickListener(this);
+		nameEdit.setOnFocusChangeListener(mOnFocusChangeListener);
+		pwdEdit.setOnFocusChangeListener(mOnFocusChangeListener);
+		telEdit.setOnFocusChangeListener(mOnFocusChangeListener);
+		smsEdit.setOnFocusChangeListener(mOnFocusChangeListener);
+		mSmsReceiver = new SmsReceiver();
+		IntentFilter filter = new IntentFilter();
+		filter.addAction("android.provider.Telephony.SMS_RECEIVED");
+		filter.setPriority(Integer.MAX_VALUE);
+		getActivity().registerReceiver(mSmsReceiver, filter);
+		initData();
+	}
+
+	private OnFocusChangeListener mOnFocusChangeListener = new OnFocusChangeListener() {
+
+		@Override
+		public void onFocusChange(View v, boolean hasFocus) {
+
+			EditText tv = (EditText) v;
+			if (null == tv) {
+				return;
+			}
+			String hint;
+			if (hasFocus) {
+				hint = tv.getHint().toString();
+				tv.setTag(hint);
+				tv.setText("");
+			} else {
+				hint = tv.getTag().toString();
+				tv.setText(hint);
+			}
+		}
+	};
 
 	@Override
 	public void onClick(View v) {
@@ -109,7 +147,7 @@ public class RegisterFragment extends Fragment implements OnClickListener {
 
 					@Override
 					public void onProgressUpdate(BaseParser parser) {
-						
+
 					}
 				});
 		HttpUtil.addRequest(request, true);
@@ -161,18 +199,6 @@ public class RegisterFragment extends Fragment implements OnClickListener {
 			super.handleMessage(msg);
 		}
 	};
-
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		smsCodeView.setOnClickListener(this);
-		mSmsReceiver = new SmsReceiver();
-		IntentFilter filter = new IntentFilter();
-		filter.addAction("android.provider.Telephony.SMS_RECEIVED");
-		filter.setPriority(Integer.MAX_VALUE);
-		getActivity().registerReceiver(mSmsReceiver, filter);
-		initData();
-	}
 
 	private void initData() {
 		nameEdit.addTextChangedListener(new TextWatcher() {

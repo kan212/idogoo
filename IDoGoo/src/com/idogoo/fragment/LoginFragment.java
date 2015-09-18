@@ -73,10 +73,10 @@ public class LoginFragment extends Fragment implements OnClickListener {
 			if (hasFocus) {
 				hint = tv.getHint().toString();
 				tv.setTag(hint);
-				tv.setText("");
+				tv.setHint("");
 			} else {
 				hint = tv.getTag().toString();
-				tv.setText(hint);
+				tv.setHint(hint);
 			}
 		}
 	};
