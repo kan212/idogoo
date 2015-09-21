@@ -132,7 +132,7 @@
                     android:cursorVisible="true"
                     android:focusableInTouchMode="true"
                     android:gravity="left"
-                    android:hint=""
+                    android:hint="请尽可能详细描述你的问题，以便专家能够很好地get到你的想法，进而为你提供更好的服务"
                     android:minHeight="80dp"
                     android:textColor="@color/edit_text_color"
                     android:textCursorDrawable="@null"

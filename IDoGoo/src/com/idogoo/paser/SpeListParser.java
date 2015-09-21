@@ -8,13 +8,18 @@ import org.json.JSONArray;
 public class SpeListParser extends BaseParser {
 
 	private List<SpeListItem> list = new ArrayList<SpeListItem>();
-
+	private int num = 0;
 	@Override
 	public void parse(String json) {
 		super.parse(json);
 		if (getCode() == BaseParser.SUCCESS) {
 			parseSpeList(getObj().optJSONArray("data"));
+			num = getObj().optInt("num");
 		}
+	}
+	
+	public int getNum() {
+		return num;
 	}
 
 	private void parseSpeList(JSONArray array) {

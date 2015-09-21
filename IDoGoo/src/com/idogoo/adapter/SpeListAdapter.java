@@ -102,23 +102,21 @@ public class SpeListAdapter extends BaseAdapter {
 		ImageLoader.getInstance().displayImage(info.getPhoto(), holder.iv_user);
 		holder.tv_Location.setText(info.getYour_city());
 		holder.tv_Name.setText(info.getTruename());
+		holder.tips_1.setVisibility(View.VISIBLE);
+		holder.tips_1.setText(info.getSummary());
 		if (null == item.getTipList()) {
 			return;
 		}
 		for (int i = 0; i < item.getTipList().size(); i++) {
 			switch (i) {
 			case 0:
-				holder.tips_1.setVisibility(View.VISIBLE);
-				holder.tips_1.setText(item.getTipList().get(i).getSummary());
-				continue;
-			case 1:
 				holder.tips_2.setVisibility(View.VISIBLE);
 				holder.tips_2.setText(item.getTipList().get(i).getSummary());
-				continue;
-			case 2:
+				break;
+			case 1:
 				holder.tips_3.setVisibility(View.VISIBLE);
 				holder.tips_3.setText(item.getTipList().get(i).getSummary());
-				continue;
+				break;
 			}
 		}
 	}

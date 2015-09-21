@@ -24,6 +24,11 @@ import com.idogoo.utils.Constant;
 import com.idogoo.widget.CircleImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+/**
+ * 取消订单
+ * @author kan212
+ *
+ */
 public class CancelOrderFragment extends Fragment implements OnClickListener {
 
 	private View mView;

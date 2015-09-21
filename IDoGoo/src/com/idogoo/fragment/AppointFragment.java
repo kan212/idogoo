@@ -62,7 +62,7 @@ public class AppointFragment extends Fragment implements OnClickListener {
 		tv_expert_price = (TextView) mView.findViewById(R.id.tv_expert_price);
 		btn_submit = (Button) mView.findViewById(R.id.btn_submit);
 		editQusetion = (EditText) mView.findViewById(R.id.edit_qustion);
-		editInfo = (EditText) mView.findViewById(R.id.edit_position);
+		editInfo = (EditText) mView.findViewById(R.id.edit_info);
 		editPosition = (EditText) mView.findViewById(R.id.edit_position);
 		editTime = (EditText) mView.findViewById(R.id.edit_time);
 		return mView;
@@ -138,11 +138,7 @@ public class AppointFragment extends Fragment implements OnClickListener {
 
 	private void submitInfo(String s1, String s2, String s3, String s4) {
 		BaseParser parser = new BaseParser();
-
-		if(!Variable.getInstance().getUserLogin()) {
-			JumpUtils.startLogin(getActivity());
-			return;
-		}
+		
 		LoginParser mLoginParser = new LoginParser();
 		mLoginParser.parse(mLoginParser.readCache());
 		Config.e(mLoginParser.getId());

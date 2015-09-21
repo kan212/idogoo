@@ -33,20 +33,23 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 
 	private View mView;
 	private PullRefreshLayout mPullRefreshLayout;
-	IDoGooRequest request ;
+	IDoGooRequest request;
 	private SpeListAdapter mAdapter;
 	private int start = 0;
-	
+	private int num = 0;
+	private int end = 0;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.fragment_spelist, container, false);
-		mPullRefreshLayout = (PullRefreshLayout) mView.findViewById(R.id.pull_to_refresh_View);
+		mPullRefreshLayout = (PullRefreshLayout) mView
+				.findViewById(R.id.pull_to_refresh_View);
 		mListView = (ListView) mView.findViewById(R.id.pull_list);
 		mListView.addFooterView(onCreateFooterView(inflater));
 		return mView;
@@ -74,14 +77,21 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 		if (null != request && !request.hasHadResponseDelivered()) {
 			request.cancel();
 		}
-		if(isLoadMore) {
+		if (isLoadMore) {
 			start += 5;
 		}
-		if(start > 95) {
+		end = start + 4;
+		if (isLoadMore && start > num) {
 			setLoadMoreState(isLoadMore, BaseParser.EMPTY);
 			return;
 		}
-		
+		if (isLoadMore && end >= num) {
+			end = num - 1;
+		}
+		Config.e("num: " + num);
+		Config.e("start: " + start);
+		Config.e("end: " + end);
+
 		OnProtocolTaskListener callBack = new OnProtocolTaskListener() {
 
 			@Override
@@ -89,43 +99,48 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 				refreshData(isLoadMore, (SpeListParser) parser);
 			}
 		};
-		request = new IDoGooRequest(RequestUrl.getSpeListReqeust(start), parser, callBack);
-		
-		HttpUtil.addRequest(request,true);
+		request = new IDoGooRequest(RequestUrl.getSpeListReqeust(start, end),
+				parser, callBack);
+
+		HttpUtil.addRequest(request, true);
 	}
 
 	/**
 	 * 刷新视图
+	 * 
 	 * @param parser
 	 */
-	protected void refreshData(boolean isLoadMore,SpeListParser parser) {
+	protected void refreshData(boolean isLoadMore, SpeListParser parser) {
 		if (isDetached() || null == getActivity()) {
 			return;
 		}
 		setLoadMoreState(isLoadMore, parser.getCode());
-		
-		if(parser.getCode() == BaseParser.SUCCESS) {
-			if(!isLoadMore) {
+
+		if (parser.getCode() == BaseParser.SUCCESS) {
+			num = parser.getNum();
+			if (!isLoadMore) {
 				mAdapter.setList(parser.getList());
-			}else {
+			} else {
 				mAdapter.addList(parser.getList());
 			}
 		}
 		isLoadedOver(isLoadMore);
 	}
-	
+
 	private void isLoadedOver(final boolean isLoadMore) {
 		mListView.post(new Runnable() {
 			@Override
 			public void run() {
-				if (!isLoadMore && mAdapter != null
-						&& mListView.getLastVisiblePosition() == mAdapter.getCount()) {
+				if (!isLoadMore
+						&& mAdapter != null
+						&& mListView.getLastVisiblePosition() == mAdapter
+								.getCount()) {
 					setLoadMoreState(isLoadMore, BaseParser.EMPTY);
-				}	
+				}
 			}
 		});
 	}
-	
+
 	OnScrollListener mOnScrollListener = new OnScrollListener() {
 		private boolean isScollToFoot;
 
@@ -135,7 +150,7 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 				requetData(true);
 			}
 		}
-		
+
 		@Override
 		public void onScroll(AbsListView view, int firstVisibleItem,
 				int visibleItemCount, int totalItemCount) {
@@ -146,14 +161,13 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 			}
 		}
 	};
-	
-	
+
 	OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
 
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			if(position < 0) {
+			if (position < 0) {
 				return;
 			}
 			if (position == mAdapter.getCount()) {
@@ -162,10 +176,12 @@ public class SpeListFragment extends BaseFragmentHasFooter {
 				return;
 			}
 			SpeListItem item = mAdapter.getItem(position);
-			if(null != item) {
-				JumpUtils.startExpertDetail(getActivity(), item.getUserInfo().getUser_id());;
+			if (null != item) {
+				JumpUtils.startExpertDetail(getActivity(), item.getUserInfo()
+						.getUser_id());
+				;
 			}
 		}
 	};
-	
+
 }

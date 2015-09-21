@@ -27,6 +27,7 @@ import com.idogoo.request.IDoGooRequest;
 import com.idogoo.request.RequestUrl;
 import com.idogoo.utils.Constant;
 import com.idogoo.utils.JumpUtils;
+import com.idogoo.utils.Variable;
 import com.idogoo.widget.RoundedImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -168,6 +169,10 @@ public class ExpertDetailFragment extends Fragment {
 				
 				@Override
 				public void onClick(View v) {
+					if(!Variable.getInstance().getUserLogin()) {
+						JumpUtils.startLogin(getActivity());
+						return;
+					}
 					JumpUtils.startAppoint(getActivity(),item.getTopic_id(),item.toString());
 				}
 			});

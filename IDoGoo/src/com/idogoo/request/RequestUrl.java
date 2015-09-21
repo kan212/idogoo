@@ -33,11 +33,11 @@ public class RequestUrl {
 
 	public static final String AUTH_TOKEN = "ba1b8cbe47c2a4466a6fb690b3d2f1b9";
 
-	public static final String getSpeListReqeust(int begin) {
+	public static final String getSpeListReqeust(int begin ,int end) {
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		pairs.add(new BasicNameValuePair("type", 99 + ""));
 		pairs.add(new BasicNameValuePair("begin", begin + ""));
-		pairs.add(new BasicNameValuePair("end", (begin + 4) + ""));
+		pairs.add(new BasicNameValuePair("end", end + ""));
 		pairs.add(new BasicNameValuePair("num", "20"));
 		pairs.add(new BasicNameValuePair("client_ticket", Variable
 				.getInstance().getAccess_key()));
