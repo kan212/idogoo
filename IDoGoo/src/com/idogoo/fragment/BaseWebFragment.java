@@ -37,6 +37,11 @@ import com.idogoo.R;
 import com.idogoo.utils.Config;
 import com.idogoo.utils.Constant;
 
+/**
+ * 基本的webview
+ * @author kan212
+ *
+ */
 public class BaseWebFragment extends Fragment {
 	protected String mUrl;
 	public View mViews;

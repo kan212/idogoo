@@ -119,14 +119,20 @@ public class CancelOrderFragment extends Fragment implements OnClickListener {
 		case R.id.tv_1:
 			tv_1.setBackgroundColor(getResources().getColor(
 					R.color.bg_concel_order_reason));
+			tv_2.setBackgroundColor(0xffffffff);
+			tv_3.setBackgroundColor(0xffffffff);
 			break;
 		case R.id.tv_2:
 			tv_2.setBackgroundColor(getResources().getColor(
 					R.color.bg_concel_order_reason));
+			tv_1.setBackgroundColor(0xffffffff);
+			tv_3.setBackgroundColor(0xffffffff);
 			break;
 		case R.id.tv_3:
 			tv_3.setBackgroundColor(getResources().getColor(
 					R.color.bg_concel_order_reason));
+			tv_1.setBackgroundColor(0xffffffff);
+			tv_2.setBackgroundColor(0xffffffff);
 			break;
 		}
 	}

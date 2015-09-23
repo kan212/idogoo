@@ -1,11 +1,18 @@
 package com.idogoo.fragment;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.idogoo.R;
+import com.idogoo.paser.AboutItem;
+import com.idogoo.paser.AboutParser;
 import com.idogoo.paser.TopicParser;
+import com.idogoo.utils.Constant;
 import com.idogoo.widget.CircleImageView;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +30,7 @@ public class ExpertConfirmFragment extends Fragment implements View.OnClickListe
 	private TextView tv_expert_name, tv_expert_intro, tv_expert_price,tv_order_title;
 	private CircleImageView iv_expert;
 	private Button btn_pay;
-	TopicParser parser;
+	AboutItem item;
 	private String mJson;
 	
 	@Override
@@ -31,7 +38,14 @@ public class ExpertConfirmFragment extends Fragment implements View.OnClickListe
 		super.onCreate(savedInstanceState);
 		Bundle args = getArguments();
 		if(null != args) {
-			
+			mJson = args.getString(Constant.EXTRA_JSON);
+			if(!TextUtils.isEmpty(mJson)) {
+				try {
+					item = new AboutItem(new JSONObject(mJson));
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
@@ -52,6 +66,14 @@ public class ExpertConfirmFragment extends Fragment implements View.OnClickListe
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		btn_pay.setOnClickListener(this);
+		initData();
+	}
+	
+	/**
+	 * 显示视图
+	 */
+	private void initData() {
+		tv_order_title.setText(item.getTopic_title());
 	}
 
 	@Override

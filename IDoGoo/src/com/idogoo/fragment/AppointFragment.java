@@ -161,11 +161,11 @@ public class AppointFragment extends Fragment implements OnClickListener {
 	}
 
 	private void initData(BaseParser parser) {
-		JumpUtils.startPayFragment(getActivity(), mTopicParser.getObj()
-				.toString());
 		Config.e(parser.getObj().toString());
 		if (BaseParser.SUCCESS == parser.getCode()) {
 			if (null != mTopicParser) {
+				JumpUtils.startPayFragment(getActivity(), mTopicParser.getObj()
+						.toString());
 			}
 		}
 	}

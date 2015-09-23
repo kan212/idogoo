@@ -12,6 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+/**
+ * 约我的人和我约的人共用的列表
+ * @author kan212
+ *
+ */
 public class AboutListFragment extends Fragment{
 
 	public static final int ONGOING = 0;
